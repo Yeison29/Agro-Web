@@ -1,0 +1,52 @@
+.actions {
+    display: flex;
+    justify-content: right;
+  }
+  
+  .title {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    top: 8px;
+  
+    h1 {
+      text-transform: capitalize;
+      font-weight: 500;
+      color: #3c6a36;
+      font-family: Concert One;
+      font-size: 1.5em;
+  
+      span {
+  
+        color: #eda407;
+      }
+    }
+  }
+  
+  .content-vidio {
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  .close {
+    padding: 5px 5px 3px 5px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s all ease;
+    z-index: 2;
+  }
+  
+  .close:hover {
+    transform: scale(1.1);
+    background-color: rgba(128, 128, 128, 0.482);
+  }

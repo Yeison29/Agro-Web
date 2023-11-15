@@ -1,0 +1,21 @@
+<div ngClass="dsc-news">
+    <ng-container *ngFor="let n of items">
+        <div ngClass="dsc-news__container"
+            [ngStyle]="{'background-image': 'url(' + n.image + ')', 'margin-left': n.marginLeft + '%'}">
+            <div ngClass="dsc-news__container-new">
+                <div ngClass="dsc-news__container-new__item">
+                    <div ngClass="dsc-news__container-new__item-inf">
+                        <h1>{{n.title?.first}} <span>{{n.title?.second}}</span></h1>
+                        <p>{{n.description}}</p>
+                    </div>
+                    <div ngClass="dsc-news__container-new__item-vidio">
+                        <iframe width="250" height="150" src="https://www.youtube.com/embed/xGcutJk_7Kw?si=c12MWiWrAZv6L6co" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <!-- <youtube-player [videoId]="items[0].videoLink" [width]="250" [height]="150"></youtube-player> -->
+                    </div>
+                    <!-- <button (click)="openVidio(n)"><mat-icon>play_arrow</mat-icon> Ver video</button> -->
+                    
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

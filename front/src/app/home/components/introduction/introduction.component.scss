@@ -1,0 +1,174 @@
+.int-container {
+    text-align: left;
+    flex-direction: column;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background: linear-gradient(#fff, 15% , #b6b6b6, 80%, #fff);
+    padding-left: 10%;
+    padding-right: 10%;
+  
+  
+    .int-title {
+      color: #3c6a36;
+      font-family: Concert One;
+      font-size: 2em;
+      text-transform: capitalize;
+      font-weight: 900;
+  
+      span {
+        color: #eda407;
+      }
+    }
+  
+    .int-cards {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      gap: 2em;
+      margin-top: 1.5em;
+  
+      .int-read-more {
+        display: flex;
+        justify-content: right;
+  
+        div {
+          padding: 5px;
+          border-radius: 10px;
+          border: 1px solid #eda407;
+          cursor: pointer;
+          transition: all 0.3s ease;
+  
+          button {
+            text-transform: uppercase;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #3c6a36;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: transparent;
+  
+  
+            span {
+              color: #3c6a36;
+              font-weight: 900;
+  
+              span {
+                color: #eda407;
+              }
+            }
+          }
+        }
+  
+        div:hover {
+          transform: scale(1.1);
+          background-color: #c9c9c9;
+        }
+      }
+    }
+  }
+  
+  .int-container-testimony {
+    background: linear-gradient(#fff, 15% , #b6b6b6, 80%, #fff);
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 10%;
+    padding-right: 10%;
+  
+    .int-testimony {
+      display: flex;
+      justify-content: center;
+      flex-direction: row-reverse;
+      gap: 2em;
+  
+      .int-testimony-inf {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.4em;
+  
+        .int-testimony-title {
+          text-transform: capitalize;
+          font-size: 2em;
+          color: #3c6a36;
+          font-family: Concert One;
+          font-weight: 900;
+        }
+  
+        .int-testimony-subtitle {
+          font-size: 1.7em;
+          font-weight: 500;
+          display: flex;
+          justify-content: left;
+          font-family: Concert One;
+  
+          .subtitle {
+            text-transform: lowercase;
+            line-height: 1;
+  
+            .camp {
+              color: #3c6a36;
+              font-weight: bold;
+            }
+          }
+  
+          .subtitle:first-letter {
+            text-transform: uppercase;
+          }
+  
+          .exclamation-mark {
+            font-weight: bold;
+            color: #eda407;
+          }
+        }
+  
+        p {
+          text-transform: lowercase;
+        }
+  
+        p:first-letter {
+          text-transform: uppercase;
+        }
+      }
+  
+      .int-testimony-vidio {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+  
+        .int-container-vidio {
+          padding: 1em;
+          border: 1px solid #eda407;
+          border-radius: 10px;
+  
+          .int-vidio {
+            padding: 1em;
+            border: 1px solid #3c6a36;
+            border-radius: 10px;
+            transition: 0.5s all ease;
+  
+            youtube-player{
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: rgb(109, 109, 109);
+              transition: 0.5s all ease;
+            }
+          }
+        }
+  
+      }
+    }
+  
+    @media (max-width: 600px) {
+      .int-testimony {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          gap: 2em;
+      }
+    }
+  }
+  
+  .int-container-testimony:hover youtube-player {
+    box-shadow: 0 0 15px 10px rgb(109, 109, 109);
+  }
