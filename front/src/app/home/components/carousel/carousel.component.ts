@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './carousel.component.scss'
 })
 export class CarouselComponent {
-
+ 
 }
