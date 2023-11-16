@@ -2,11 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../public/header/header.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
@@ -65,7 +68,7 @@ export class ServicesComponent implements OnInit {
         datasets: [{
           label: 'Producción de Hectáreas',
           data: this.obtenerProduccion(),
-          backgroundColor: 'rgba(75, 192, 192, 0.7)',
+          backgroundColor: '#3c6a36',
           borderColor: 'rgba(75, 192, 192, 1)',
           borderWidth: 1
         }]
@@ -160,4 +163,6 @@ export class ServicesComponent implements OnInit {
     ];
     return months[monthNumber - 1];
   }
+
+  
 }

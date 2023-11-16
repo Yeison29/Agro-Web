@@ -1,0 +1,18 @@
+.container-chart {
+    display: flex;
+    flex-direction: column; /* Distribuye los elementos en columnas */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos equitativamente */
+    width: 100%;
+  }
+  
+  .container-chart canvas {
+    width: 48%; /* Ajusta según tus necesidades */
+    margin-bottom: 10px; /* Espaciado entre las gráficas */
+  }

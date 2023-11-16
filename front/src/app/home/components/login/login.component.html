@@ -1,1 +1,156 @@
-<p>login works!</p>
+<!-- <div class="container" id="container" [class]="right_panel" >
+	<div class="form-container sign-up-container">
+		<form action="#" class="form" [formGroup]="form" (submit)="submit()">
+			<h1>Create Account</h1>
+            <div class="form-sign-up">
+
+                <mat-form-field>
+                    <mat-label>Nombres</mat-label>
+                    <input matInput #name maxlength="50" placeholder="Pepito" formControlName="name">
+                    <mat-hint align="start">Max<strong> 50 </strong>caracteres </mat-hint>
+                    <mat-hint align="end">{{name.value.length}} / 50</mat-hint>
+                    @if (form.get('name')?.errors?.['required']) {
+                        <mat-error>Nombre <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput #lastname maxlength="50" placeholder="Pepito" formControlName="lastname">
+                    <mat-hint align="start">Max<strong> 50 </strong>caracteres </mat-hint>
+                    <mat-hint align="end">{{lastname.value.length}} / 50</mat-hint>
+                    @if (form.get('lastname')?.errors?.['required']) {
+                        <mat-error>Apellido <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Celular</mat-label>
+                    <span matPrefix>+57 &nbsp;</span>
+                    <input type="tel" #phone maxlength="10" minlength="10" matInput placeholder="312-555-1234" formControlName="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
+                    @if (form.get('phone')?.errors?.['required']) {
+                        <mat-error>Celular <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Tipo Documento</mat-label>
+                    <mat-select formControlName="type_document">
+                        @for (type of type_documents; track type) {
+                            <mat-option [value]="type.id_type_document">{{type.code_type_document}} - {{type.name_type_document}}</mat-option>
+                          }
+                    </mat-select>
+                    <mat-hint align="end">Seleccione un <strong>tipo documento</strong></mat-hint>
+                    @if (form.get('type_document')?.errors?.['required']) {
+                        <mat-error>Tipo documento <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Documento</mat-label>
+                    <input type="text" #type_document maxlength="8" minlength="15" matInput placeholder="55523234" formControlName="id_document" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <mat-hint align="start">Min<strong> 8 </strong>- Max<strong> 15 </strong> </mat-hint>
+                    <mat-hint align="end">{{lastname.value.length}} / 15</mat-hint>
+                    @if (form.get('id_document')?.errors?.['required']) {
+                        <mat-error>Documento <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                    @if (form.get('email')?.errors?.['email'] && !form.get('email')?.errors?.['required']) {
+                      <mat-error>Ingrese un correo <strong>valido</strong></mat-error>
+                    }
+                    @if (form.get('email')?.errors?.['required']) {
+                      <mat-error>Correo <strong>requerido</strong></mat-error>
+                    }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    @if (form.get('birthdate')?.errors?.['required']) {
+                        <mat-error>Fecha nacimiento <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Genero</mat-label>
+                    <mat-select formControlName="gender">
+                        @for (type of genders; track type) {
+                            <mat-option [value]="type.id_gender">{{type.code_gender}} - {{type.name_gender}}</mat-option>
+                          }
+                    </mat-select>
+                    <mat-hint align="end">Seleccione un <strong>genero</strong></mat-hint>
+                    @if (form.get('gender')?.errors?.['required']) {
+                        <mat-error>Genero <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Departamento</mat-label>
+                        <mat-select formControlName="department" (selectionChange)="onDepartamento($event.value)">
+                            @for (type of departments; track type) {
+                                <mat-option [value]="type.id_department">{{type.code_department}} - {{type.name_department}}</mat-option>
+                              }
+                        </mat-select>
+                        <mat-hint align="end">Seleccione un <strong>departamento</strong></mat-hint>
+                         @if (form.get('department')?.errors?.['required']) {
+                            <mat-error>Departamento <strong>requerido</strong></mat-error>
+                          }
+                    </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Municipio</mat-label>
+                    <mat-select formControlName="municipality">
+                        @for (type of municipalities; track type) {
+                            <mat-option [value]="type.id_municipality">{{type.code_municipality}} - {{type.name_municipality}}</mat-option>
+                          }
+                    </mat-select>
+                    <mat-hint align="end">Seleccione un <strong>municipio</strong></mat-hint>
+                     @if (form.get('municipality')?.errors?.['required']) {
+                        <mat-error>Municipio <strong>requerido</strong></mat-error>
+                      }
+                </mat-form-field>
+                  
+
+            </div>
+            <button>Crear</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#" class="form">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><fa-icon [icon]="icon_git_hub"></fa-icon></a>
+                <a href="#" class="social"><fa-icon [icon]="icon_facebook"></fa-icon></a>
+                <a href="#" class="social"><fa-icon [icon]="icon_instagram"></fa-icon></a>
+			</div>
+			<span>or use your account</span>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn" (click)="removeActivePanel()">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp" (click)="activeActivePanel()">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+ -->

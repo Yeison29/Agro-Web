@@ -1,5 +1,19 @@
 <app-header></app-header>
 
-
+<mat-form-field class="selectCultivo">
+  <mat-label>Cultivo</mat-label>
+  <mat-select formControlName="cultivo">
+      <mat-option value="1">Tomate</mat-option>
+      <mat-option value="2">Cebolla</mat-option>
+      <mat-option value="3">Papa</mat-option>
+      <!-- @for (type of genders; track type) {
+          <mat-option [value]="type.id_gender">{{type.code_gender}} - {{type.name_gender}}</mat-option>
+        } -->
+  </mat-select>
+  <mat-hint align="end">Seleccione un <strong>Cultivo</strong></mat-hint>
+  <!-- @if (form.get('gender')?.errors?.['required']) {
+      <mat-error>Genero <strong>requerido</strong></mat-error>
+    } -->
+</mat-form-field>
 
 <canvas id="miGrafica"></canvas>
