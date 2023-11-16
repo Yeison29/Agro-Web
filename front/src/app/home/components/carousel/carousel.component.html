@@ -1,21 +1,20 @@
 
-
 <div ngClass="dsc-carousel" [ngStyle]="{'min-height': finalHeight}">
-    <div class="carousel-controls">
-      <input id="1" type="radio" name="controls" checked />
-      <input id="2" type="radio" name="controls" />
-      <input id="3" type="radio" name="controls" />
-      <div class="dots">
-        <label for="1"></label>
-        <label for="2"></label>
-        <label for="3"></label>
-      </div>
-      <div class="carousel-images" *ngFor="let item of carouselItems">
-        <!-- Tu lógica HTML para mostrar cada elemento del carousel -->
-        <div ngClass="dsc-carousel__content-item" [ngStyle]="{'background-image': 'url(' + item.image + ')', 'margin-left': item.marginLeft + '%'}">
-            <h1>{{item.title?.first}} <span>{{item.title?.second}}</span></h1>
-            <p>{{item.subtitle}}</p>
+    <div ngClass="dsc-carousel__btns">
+        <i (click)="setBack();"><mat-icon>chevron_left</mat-icon></i>
+        <i (click)="setNext(); btnsInterval()"><mat-icon>chevron_right</mat-icon></i>
+    </div>
+    <div ngClass="dsc-carousel__content">
+        <ng-container *ngFor="let section of carouselItems">
+            <div ngClass="dsc-carousel__content-item" [ngStyle]="{'background-image': 'url(' + section.image + ')', 'margin-left': section.marginLeft + '%'}">
+                <h1>{{section.title?.first}} <span>{{section.title?.second}}</span></h1>
+                <p>{{section.subtitle}}</p>
+            </div>
+        </ng-container>
+    </div>
+    <div ngClass="dsc-carousel__steps">
+        <div ngClass="dsc-carousel__steps-step dsc-carousel__steps-step-{{currentIndex === item.id ? 'active': ''}}" *ngFor="let item of carouselItems" (click)="setCurrentPosition(item.id)">
+
         </div>
-        <!-- Otros detalles según tu estructura de carousel -->
-      </div>
-  </div>
+    </div>
+</div>

@@ -2,14 +2,13 @@ import { Component, Inject, OnInit, AfterViewInit, ChangeDetectorRef, ViewChild,
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { InewItem } from '../news/Inews-items.metadata';
 import { FormBuilder } from '@angular/forms';
-import { YouTubePlayerModule } from '@angular/youtube-player';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-homevideo',
   standalone: true,
-  imports: [CommonModule, YouTubePlayerModule, MatIconModule],
+  imports: [CommonModule, MatIconModule],
   templateUrl: './homevideo.component.html',
   styleUrl: './homevideo.component.scss'
 })

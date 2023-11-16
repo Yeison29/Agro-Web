@@ -9,11 +9,12 @@ import { IcarruselItem } from '../../components/carousel/Icarrusel-items.metadat
 import { CAROUSEL_DATA_ITEMS } from '../../constants/carousel.const';
 import { InewItem } from '../../components/news/Inews-items.metadata';
 import { NEW_DATA_ITEMS } from '../../constants/news.const';
-
+import { MatIconModule } from '@angular/material/icon';
+ 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent, NewsComponent],
+  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent, NewsComponent, MatIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
