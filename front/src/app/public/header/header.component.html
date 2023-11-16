@@ -6,17 +6,17 @@
     <div Class="dropdown">
       <nav [class]="dropDown">
         <ul Class="nav-links">
-          <li>
-            <a href="#">Home</a>
+          <li *ngIf="!esRutaHome()" (click)="navigateTo('home')">
+            <a (click)="navigateTo('home')">Home</a>
           </li>
-          <li>
-            <a href="#">servicios</a>
+          <li *ngIf="!esRutaServices()" (click)="navigateTo('services')">
+            <a (click)="navigateTo('services')">servicios</a>
           </li>
-          <li>
-              <a href="#">estadisticas</a>
+          <li *ngIf="!esRutaStatistics()" (click)="navigateTo('statistics')">
+              <a (click)="navigateTo('statistics')">estadisticas</a>
           </li>
-          <li>
-            <a href="#">sobre nosotros</a>
+          <li *ngIf="!esRutaAbout()" (click)="navigateTo('about')">
+            <a (click)="navigateTo('about')">sobre nosotros</a>
           </li>
         </ul>
       </nav>
