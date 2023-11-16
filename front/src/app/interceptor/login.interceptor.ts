@@ -6,9 +6,12 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable, finalize } from 'rxjs';
+import { Token } from '@angular/compiler';
 
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
+
+tokenLessRoutes: string[] = ['/get-all-type-documents', '/get-all-gender', '/get-all-contries', '/get-all-departments', '/get-all-municipalities'];
 
   // constructor(private load: LoaderService) {}
 
@@ -16,13 +19,22 @@ export class LoginInterceptor implements HttpInterceptor {
 
 
     // this.load.setActive();
+    console.log(request.url.split('?')[0])
+
+    if (this.tokenLessRoutes.some(ruta => ruta === request.url.split('?')[0])) {
+      console.log(request.url)
+      return next.handle(request);
+    }else {
+      console.log("entro")
+      return next.handle(request);
+    }
 
     let cloneReq = request;
 
     cloneReq = request.clone(
       {
         setHeaders:{
-          Authorization: 'Bearer ' + localStorage.getItem("access_token")
+          // Authorization: 'Bearer ' + localStorage.getItem("access_token")
         }
       }
     )

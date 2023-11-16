@@ -58,7 +58,7 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
-form {
+.form {
 	background-color: #FFFFFF;
 	display: flex;
 	align-items: center;
@@ -69,12 +69,8 @@ form {
 	text-align: center;
 }
 
-input {
-	// background-color: #eee;
-	// border: none;
-	padding: 15px 20px;
-	// margin: 8px 0;
-	// width: 100%;
+#container{
+	min-width: 1000px;
 }
 
 .container-main {
@@ -91,7 +87,7 @@ input {
 	position: relative;
 	overflow: hidden;
 	max-width: 90%;
-	min-height: 480px;
+	min-height: 100vh;
 }
 
 .form-container {
@@ -236,8 +232,9 @@ input {
     gap: 1rem;
 }
 
-@media (width<700) {
-    .form-container {
-        grid-template-columns: 3fr;
+@media (max-width: 1000px) {
+    #container {
+		display: flex !important;
+        flex-direction: column !important;
     }
 }
