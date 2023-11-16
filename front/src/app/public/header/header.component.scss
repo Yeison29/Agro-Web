@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 18px;
   color: #151515;
   text-transform: uppercase;
 }
@@ -12,8 +12,7 @@ header{
   justify-content: space-between;
   align-items: center;
   height: 85px;
-  padding: 5px;
-  padding-right: 20px;
+  padding: 5px 20px 5px 5px;
 }
 
 .container-menu{
@@ -62,7 +61,7 @@ header .logo img:hover{
 
 .nav-links a{
   text-decoration: none;
-  font-family: Concert One;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .nav-links li:hover a{
@@ -85,7 +84,7 @@ button{
   padding: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: Concert One;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   color: white;
 }
 
@@ -121,7 +120,7 @@ button:active{
 
   .menu a mat-icon{
     transform: scale(2);
-    font-size: 25px;
+    font-size: 20px;
     text-transform: lowercase;
   }
 

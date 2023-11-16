@@ -10,11 +10,12 @@ import { CAROUSEL_DATA_ITEMS } from '../../constants/carousel.const';
 import { InewItem } from '../../components/news/Inews-items.metadata';
 import { NEW_DATA_ITEMS } from '../../constants/news.const';
 import { MatIconModule } from '@angular/material/icon';
- 
+import {FooterComponent} from "../../../public/footer/footer.component";
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent, NewsComponent, MatIconModule],
+  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent, NewsComponent, MatIconModule, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
