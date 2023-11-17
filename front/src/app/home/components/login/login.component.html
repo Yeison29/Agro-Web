@@ -1,12 +1,12 @@
-<!-- <div class="container" id="container" [class]="right_panel" >
+<div class="container" id="container" [class]="right_panel" >
 	<div class="form-container sign-up-container">
-		<form action="#" class="form" [formGroup]="form" (submit)="submit()">
+		<form class="form" [formGroup]="form">
 			<h1>Create Account</h1>
             <div class="form-sign-up">
 
                 <mat-form-field>
                     <mat-label>Nombres</mat-label>
-                    <input matInput #name maxlength="50" placeholder="Pepito" formControlName="name">
+                    <input matInput #name maxlength="50" placeholder="Pepito" formControlName="name_user">
                     <mat-hint align="start">Max<strong> 50 </strong>caracteres </mat-hint>
                     <mat-hint align="end">{{name.value.length}} / 50</mat-hint>
                     @if (form.get('name')?.errors?.['required']) {
@@ -16,7 +16,7 @@
 
                 <mat-form-field>
                     <mat-label>Apellidos</mat-label>
-                    <input matInput #lastname maxlength="50" placeholder="Pepito" formControlName="lastname">
+                    <input matInput #lastname maxlength="50" placeholder="Pepito" formControlName="lastname_user">
                     <mat-hint align="start">Max<strong> 50 </strong>caracteres </mat-hint>
                     <mat-hint align="end">{{lastname.value.length}} / 50</mat-hint>
                     @if (form.get('lastname')?.errors?.['required']) {
@@ -27,7 +27,7 @@
                 <mat-form-field>
                     <mat-label>Celular</mat-label>
                     <span matPrefix>+57 &nbsp;</span>
-                    <input type="tel" #phone maxlength="10" minlength="10" matInput placeholder="312-555-1234" formControlName="phone" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <input type="tel" #phone maxlength="10" minlength="10" matInput placeholder="312-555-1234" formControlName="phone_user" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
                     <mat-hint align="end">{{phone.value.length}} / 10</mat-hint>
                     @if (form.get('phone')?.errors?.['required']) {
                         <mat-error>Celular <strong>requerido</strong></mat-error>
@@ -36,7 +36,7 @@
 
                 <mat-form-field>
                     <mat-label>Tipo Documento</mat-label>
-                    <mat-select formControlName="type_document">
+                    <mat-select formControlName="type_document_id">
                         @for (type of type_documents; track type) {
                             <mat-option [value]="type.id_type_document">{{type.code_type_document}} - {{type.name_type_document}}</mat-option>
                           }
@@ -49,9 +49,9 @@
 
                 <mat-form-field>
                     <mat-label>Documento</mat-label>
-                    <input type="text" #type_document maxlength="8" minlength="15" matInput placeholder="55523234" formControlName="id_document" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
-                    <mat-hint align="start">Min<strong> 8 </strong>- Max<strong> 15 </strong> </mat-hint>
-                    <mat-hint align="end">{{lastname.value.length}} / 15</mat-hint>
+                    <input type="text" #id_document maxlength="15" minlength="8" matInput placeholder="55523234" formControlName="id_document_user" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <mat-hint align="start">Min<strong> 8 </strong>- Max<strong> 15 </strong> caracteres</mat-hint>
+                    <mat-hint align="end">{{id_document.value.length}} / 15</mat-hint>
                     @if (form.get('id_document')?.errors?.['required']) {
                         <mat-error>Documento <strong>requerido</strong></mat-error>
                       }
@@ -59,7 +59,9 @@
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+                    <input type="email" #email matInput placeholder="Ex. pat@example.com" formControlName="email_user">
+                    <mat-hint align="start">Max<strong> 250 </strong> caracteres</mat-hint>
+                    <mat-hint align="end">{{email.value.length}} / 250</mat-hint>
                     @if (form.get('email')?.errors?.['email'] && !form.get('email')?.errors?.['required']) {
                       <mat-error>Ingrese un correo <strong>valido</strong></mat-error>
                     }
@@ -69,8 +71,8 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Choose a date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="birthdate">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthdate_user">
                     <mat-hint>MM/DD/YYYY</mat-hint>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
@@ -81,7 +83,7 @@
 
                 <mat-form-field>
                     <mat-label>Genero</mat-label>
-                    <mat-select formControlName="gender">
+                    <mat-select formControlName="gender_id">
                         @for (type of genders; track type) {
                             <mat-option [value]="type.id_gender">{{type.code_gender}} - {{type.name_gender}}</mat-option>
                           }
@@ -107,7 +109,7 @@
 
                 <mat-form-field>
                     <mat-label>Municipio</mat-label>
-                    <mat-select formControlName="municipality">
+                    <mat-select formControlName="municipality_id">
                         @for (type of municipalities; track type) {
                             <mat-option [value]="type.id_municipality">{{type.code_municipality}} - {{type.name_municipality}}</mat-option>
                           }
@@ -117,11 +119,34 @@
                         <mat-error>Municipio <strong>requerido</strong></mat-error>
                       }
                 </mat-form-field>
-                  
-
             </div>
-            <button>Crear</button>
 		</form>
+      <form class="form" [formGroup]="form_password">
+        <div class="form-sign-up" >
+
+          <mat-form-field>
+            <mat-label>Contraseña</mat-label>
+            <input #password matInput placeholder="Contraseña" minlength="8" [type]="hide ? 'password' : 'text'" formControlName="auth_password">
+            <mat-hint align="start">Min<strong> 8 </strong> caracteres</mat-hint>
+            <mat-hint align="end">8 \ {{password.value.length}}</mat-hint>
+            @if (form_password.get('auth_password')?.errors?.['required']) {
+              <mat-error>Contraseña <strong>requerido</strong></mat-error>
+            }
+            @else if(password.value.length < 8){
+              <mat-error>Contraseña <strong>muy corta</strong></mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field> 
+            <mat-label>Verificar Contraseña</mat-label>
+            <input #password2 matInput placeholder="Contraseña" [type]="hide ? 'password' : 'text'" formControlName="auth_password2">
+            @if (form_password.get('auth_password2')?.errors?.['required'] && !form_password.get('auth_password')?.errors?.['required']) {
+              <mat-error>Verificación <strong>requerida</strong></mat-error>
+            }
+          </mat-form-field>
+        </div>
+      </form>
+    <button (click)="submit()">Registrarce</button>
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="#" class="form">
@@ -153,4 +178,3 @@
 		</div>
 	</div>
 </div>
- -->

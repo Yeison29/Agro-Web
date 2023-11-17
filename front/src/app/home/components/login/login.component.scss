@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 * {
 	box-sizing: border-box;
@@ -58,6 +58,10 @@ button.ghost {
 	border-color: #FFFFFF;
 }
 
+.mat-form-field{
+	width: 100%;
+}
+
 .form {
 	background-color: #FFFFFF;
 	display: flex;
@@ -65,16 +69,11 @@ button.ghost {
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 50px;
-	height: 100%;
 	text-align: center;
 }
 
-#container{
-	min-width: 1000px;
-}
 
 .container-main {
-    margin-top: 10vh;
     margin-left: 10%;
     position: relative;
 }
@@ -86,7 +85,7 @@ button.ghost {
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
 	overflow: hidden;
-	max-width: 90%;
+	max-width: 100%;
 	min-height: 100vh;
 }
 
@@ -95,12 +94,17 @@ button.ghost {
 	top: 0;
 	height: 100%;
 	transition: all 0.6s ease-in-out;
+	overflow: auto;
 }
 
 .sign-in-container {
 	left: 0;
 	width: 50%;
 	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .container.right-panel-active .sign-in-container {
@@ -225,11 +229,11 @@ button.ghost {
 }
 
 .form-sign-up {
-    margin-top: 20px;
     margin-bottom: 20px;
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 1rem;
+	width: 100%;
 }
 
 @media (max-width: 1000px) {
@@ -237,4 +241,4 @@ button.ghost {
 		display: flex !important;
         flex-direction: column !important;
     }
-} */
+} 

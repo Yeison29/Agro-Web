@@ -4,64 +4,35 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../public/header/header.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule],
+  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule, ReactiveFormsModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
 export class ServicesComponent implements OnInit {
-  datos = [
-    [
-      {
-        "week": 46,
-        "initial_year": 2023,
-        "initial_month": 11,
-        "total_hectares": 2.2
-      },
-      {
-        "week": 47,
-        "initial_year": 2023,
-        "initial_month": 11,
-        "total_hectares": 0.7
-      },
-      {
-        "week": 52,
-        "initial_year": 2023,
-        "initial_month": 12,
-        "total_hectares": 0.7
-      },
-      {
-        "week": 1,
-        "initial_year": 2024,
-        "initial_month": 1,
-        "total_hectares": 0.7
-      },
-      {
-        "week": 2,
-        "initial_year": 2024,
-        "initial_month": 1,
-        "total_hectares": 0.7
-      },
-      {
-        "week": 3,
-        "initial_year": 2024,
-        "initial_month": 1,
-        "total_hectares": 0.7
-      }
-    ]
-  ];
+  
+
+  myChart: Chart | null = null;
+  data: any = [];
+  harvests: any = [];
+  form = this.fb.group({
+    harvest: [null, [Validators.required]]
+  });
+
+  constructor(private serHome: HomeService, private fb: FormBuilder){}
 
   ngOnInit() {
-    this.crearGrafica();
+    this.getAllHarvest();
   }
 
   crearGrafica() {
-    const ctx = document.getElementById('miGrafica') as HTMLCanvasElement;
-    const myChart = new Chart(ctx, {
+    const ctx: HTMLButtonElement | null | any = document.getElementById('miGrafica') as HTMLCanvasElement;
+    this.myChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: this.obtenerSemanas(),
@@ -102,23 +73,21 @@ export class ServicesComponent implements OnInit {
   
     const semanasAgrupadas: string[] = [];
   
-    let semanaEncontrada = false;
-  
-    this.datos.forEach(semanas => {
-      semanas.forEach(dia => {
-        const fecha = new Date(dia.initial_year, dia.initial_month - 1, dia.week);
-        const semanaActual = this.getWeekNumber(fecha);
-  
-        if (semanaActual === currentWeek) {
-          semanaEncontrada = true;
-        }
-  
-        if (semanaEncontrada || semanaActual > currentWeek) {
-          semanasAgrupadas.push(`${dia.initial_year}-${this.getMonthName(dia.initial_month)}-${dia.week}`);
-        }
-      });
-    });
-  
+    let weekFound = false;
+      this.data.forEach((weeks: any) => {
+        weeks.forEach((item: any) => {
+          const date = new Date(item.initial_year, item.initial_month - 1, item.week);
+          const weekCurrent = this.getWeekNumber(date);
+    
+          if (weekCurrent === currentWeek) {
+            weekFound = true;
+          }
+    
+          if (weekFound || weekCurrent > currentWeek) {
+            semanasAgrupadas.push(`${item.initial_year}-${this.getMonthName(item.initial_month)}; sem: ${item.week}`);
+          }
+        });
+      });  
     return semanasAgrupadas;
   }
 
@@ -128,19 +97,19 @@ export class ServicesComponent implements OnInit {
   
     const produccionPorSemana: number[] = [];
   
-    let semanaEncontrada = false;
+    let weekFound = false;
   
-    this.datos.forEach(semanas => {
-      semanas.forEach(dia => {
-        const fecha = new Date(dia.initial_year, dia.initial_month - 1, dia.week);
-        const semanaActual = this.getWeekNumber(fecha);
+    this.data.forEach((weeks: any) => {
+      weeks.forEach((item: any) => {
+        const date = new Date(item.initial_year, item.initial_month - 1, item.week);
+        const weekCurrent = this.getWeekNumber(date);
   
-        if (semanaActual === currentWeek) {
-          semanaEncontrada = true;
+        if (weekCurrent === currentWeek) {
+          weekFound = true;
         }
   
-        if (semanaEncontrada || semanaActual > currentWeek) {
-          produccionPorSemana.push(dia.total_hectares);
+        if (weekFound || weekCurrent > currentWeek) {
+          produccionPorSemana.push(item.total_hectares);
         }
       });
     });
@@ -164,5 +133,26 @@ export class ServicesComponent implements OnInit {
     return months[monthNumber - 1];
   }
 
+  onChange(id: any){
+    this.getWeeksService(id);
+    if(this.myChart){
+      this.myChart.destroy();
+      this.data=[];
+    }
+  }
+
+  getAllHarvest(){
+    this.serHome.getAllHarvest().subscribe((res: any) => {
+      this.harvests= res;
+      console.log(res);
+    });
+  }
+
+  getWeeksService(id: any){
+    this.serHome.getWeeksService(id).subscribe((res: any) => {
+      this.data=[res]
+      this.crearGrafica();
+    });
+  }
   
 }

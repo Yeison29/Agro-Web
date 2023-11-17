@@ -11,7 +11,7 @@ import { Token } from '@angular/compiler';
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
 
-tokenLessRoutes: string[] = ['/get-all-type-documents', '/get-all-gender', '/get-all-contries', '/get-all-departments', '/get-all-municipalities'];
+tokenLessRoutes: string[] = ['/create-user', '/get-all-type-documents', '/get-all-gender', '/get-all-contries', '/get-all-departments', '/get-all-municipalities'];
 
   // constructor(private load: LoaderService) {}
 
@@ -24,9 +24,6 @@ tokenLessRoutes: string[] = ['/get-all-type-documents', '/get-all-gender', '/get
     if (this.tokenLessRoutes.some(ruta => ruta === request.url.split('?')[0])) {
       console.log(request.url)
       return next.handle(request);
-    }else {
-      console.log("entro")
-      return next.handle(request);
     }
 
     let cloneReq = request;
@@ -34,7 +31,7 @@ tokenLessRoutes: string[] = ['/get-all-type-documents', '/get-all-gender', '/get
     cloneReq = request.clone(
       {
         setHeaders:{
-          // Authorization: 'Bearer ' + localStorage.getItem("access_token")
+          Authorization: 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ5ZUBnbWFpbC5jb20iLCJleHAiOjE3MDAxOTMzODd9.HVgdgSgwZbF3zve9Z305HH0JTIVZBfT9QNtscPvTLcg'
         }
       }
     )

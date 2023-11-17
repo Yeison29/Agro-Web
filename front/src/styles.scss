@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+.mat-mdc-snack-bar-container {
+
+  &.green-snackbar {
+    --mdc-snackbar-container-color: green;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #BB4430;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -13,5 +28,3 @@ body {
   .carousel {
     height: 95%;
   }
-  
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");

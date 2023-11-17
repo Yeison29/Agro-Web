@@ -1,16 +1,13 @@
 
 #miGrafica {
     min-height: 500px;
-    min-width: auto;
+    max-width: 1000px;
 }
 
-.selectCultivo {
-    margin-left: 450px;
-    margin-right: 450px;
-    margin-top: 170px;
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-
 
