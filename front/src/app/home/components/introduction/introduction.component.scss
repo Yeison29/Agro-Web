@@ -1,4 +1,709 @@
-.int-container {
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;800;900&display=swap');
+
+/* ============================================================== 
+     # About Version Two 
+=================================================================== */
+
+.about-content-area {
+  position: relative;
+  z-index: 1;
+    /* Font & Text */
+  font-family: Heebo, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 30px;
+  text-decoration: none solid rgb(102, 102, 102);
+  text-align: left;
+  text-indent: 0px;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: 0px;
+  
+  /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(102, 102, 102);
+  
+    /* Box */
+    height: 867px;
+    width: 1256px;
+    border: 0px none rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 0px none rgb(102, 102, 102);
+    border-left: 0px none rgb(102, 102, 102);
+    margin: 0px;
+    padding: 120px 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: 1;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: hidden;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: none;
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.about-content-area .illustration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+  width: 50%;
+  text-align: right;
+}
+
+.about-content-area .fixed-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.about-content-area .thumb {
+  position: relative;
+  padding-left: 35px;
+  z-index: 1;
+  top: 100px;
+  margin-bottom: 100px;
+}
+
+.about-content-area .thumb img:first-child {
+  max-width: 80%;
+}
+
+.about-content-area .thumb img:nth-child(2) {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  border: 15px solid #ffffff;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  margin-top: -125px;
+}
+
+@media only screen and (min-width: 1367px) {
+
+  .about-content-area .thumb img:first-child {
+    max-width: 100%;
+  }
+
+  .about-content-area .thumb img:nth-child(2) {
+    right: -125px;
+  }
+}
+
+.about-content-area.single-thumb .thumb img:first-child {
+  max-width: 100%;
+}
+
+.about-content-area .content {
+  position: relative;
+  z-index: 1;
+  padding: 50px;
+  padding-right: 0;
+}
+
+.about-content-area .content::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  height: 100%;
+  width: 150%;
+  background: #ffffff;
+  z-index: -1;
+  box-shadow: 0 5px 30px 0 rgba(214, 215, 216, 0.57);
+}
+
+.about-content-area .info h5 {
+  text-transform: uppercase;
+  font-weight: 600;
+  position: relative;
+  padding: 15px 0;
+  z-index: 1;
+}
+
+.about-content-area .info h5::after {
+  position: absolute;
+  left: -14px;
+  top: 0;
+  content: "";
+  height: 120%;
+  width: 120%;
+  background: url(../../../../assets/images/2.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  opacity: 0.07;
+}
+
+.about-content-area .info h2 {
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.about-content-area .info a {
+  margin-top: 15px;
+}
+
+.about-content-area ul.achivement {
+  margin-top: 30px;
+  overflow: hidden;
+  margin-left: 50px;
+}
+
+.about-content-area ul.achivement li {
+  display: inline-block;
+  margin-right: 40px;
+  border-right: 1px solid #e7e7e7;
+  padding-right: 40px;
+}
+
+.about-content-area ul.achivement li:last-child {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.about-content-area ul.achivement li .counter {
+  position: relative;
+}
+
+.about-content-area ul.achivement li .counter {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 50px;
+  font-weight: 700;
+  color: #232323;
+  line-height: 1;
+}
+
+.about-content-area ul.achivement li .counter .operator {
+  font-size: 40px;
+  margin-left: 2px;
+}
+
+.about-content-area ul.achivement li .medium {
+  font-weight: 600;
+  color: #232323;
+}
+
+.about-content-area .thumb h2 {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    background: #f1cf69;
+    text-align: center;
+    padding: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    transform: translateX(-50%);
+}
+
+.about-content-area .thumb h2 {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    background: rgba(1,125,63,1);
+    text-align: center;
+    padding: 50px;
+    font-size: 16px;
+    height: 200px;
+    font-weight: 600;
+    transform: translateX(-50%);
+    color: #ffffff;
+    clip-path: polygon(100% 0, 100% 85%, 85% 100%, 0 99%, 0 0);
+}
+
+.about-content-area .thumb h2 strong {
+    display: block;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+  //INICIAL
+
+  
+
+
+    //CONTENT 
+
+    .content {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 30px;
+      text-decoration: none solid rgb(102, 102, 102);
+      text-align: left;
+      text-indent: 0px;
+      text-transform: none;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(102, 102, 102);
+    
+      /* Box */
+      height: 517px;
+      width: 540px;
+      border: 0px none rgb(102, 102, 102);
+      border-top: 0px none rgb(102, 102, 102);
+      border-right: 0px none rgb(102, 102, 102);
+      border-bottom: 0px none rgb(102, 102, 102);
+      border-left: 0px none rgb(102, 102, 102);
+      margin: 0px;
+      padding: 50px 0px 50px 50px;
+      max-height: none;
+      min-height: 0px;
+      max-width: none;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: relative;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      float: none;
+      display: block;
+      clear: none;
+      z-index: 1;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: visible;
+      cursor: auto;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0s ease 0s;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .illustration h5 {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 20px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 24px;
+      text-decoration: none solid rgb(35, 35, 35);
+      text-align: left;
+      text-indent: 0px;
+      text-transform: uppercase;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(35, 35, 35);
+    
+      /* Box */
+      height: 54px;
+      width: 490px;
+      border: 0px none rgb(35, 35, 35);
+      border-top: 0px none rgb(35, 35, 35);
+      border-right: 0px none rgb(35, 35, 35);
+      border-bottom: 0px none rgb(35, 35, 35);
+      border-left: 0px none rgb(35, 35, 35);
+      margin: 0px 0px 15px;
+      padding: 15px 0px;
+      max-height: none;
+      min-height: 0px;
+      max-width: none;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: relative;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      float: none;
+      display: block;
+      clear: none;
+      z-index: 1;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: visible;
+      cursor: auto;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0s ease 0s;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    img {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 30px;
+      text-decoration: none solid rgb(102, 102, 102);
+      text-align: right;
+      text-indent: 0px;
+      text-transform: none;
+      vertical-align: middle;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(102, 102, 102);
+    
+      /* Box */
+      height: 388.094px;
+      width: 628px;
+      border: 0px none rgb(102, 102, 102);
+      border-top: 0px none rgb(102, 102, 102);
+      border-right: 0px none rgb(102, 102, 102);
+      border-bottom: 0px none rgb(102, 102, 102);
+      border-left: 0px none rgb(102, 102, 102);
+      margin: 0px;
+      padding: 0px;
+      max-height: none;
+      min-height: 0px;
+      max-width: 100%;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: static;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      float: none;
+      display: inline;
+      clear: none;
+      z-index: auto;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: clip;
+      cursor: auto;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0s ease 0s;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .area-title {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 40px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 48px;
+      text-decoration: none solid rgb(35, 35, 35);
+      text-align: left;
+      text-indent: 0px;
+      text-transform: none;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(35, 35, 35);
+    
+      /* Box */
+      height: 144px;
+      width: 490px;
+      border: 0px none rgb(35, 35, 35);
+      border-top: 0px none rgb(35, 35, 35);
+      border-right: 0px none rgb(35, 35, 35);
+      border-bottom: 0px none rgb(35, 35, 35);
+      border-left: 0px none rgb(35, 35, 35);
+      margin: 0px 0px 25px;
+      padding: 0px;
+      max-height: none;
+      min-height: 0px;
+      max-width: none;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: static;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      float: none;
+      display: block;
+      clear: none;
+      z-index: auto;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: visible;
+      cursor: auto;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0s ease 0s;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+
+    .btn-circle-btn-theme-border-btn-md {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 600;
+      letter-spacing: normal;
+      line-height: 25px;
+      text-decoration: none solid rgb(35, 35, 35);
+      text-align: center;
+      text-indent: 0px;
+      text-transform: capitalize;
+      vertical-align: middle;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(35, 35, 35);
+    
+      /* Box */
+      height: 59px;
+      width: 168.609px;
+      border: 2px solid rgb(241, 207, 105);
+      border-top: 2px solid rgb(241, 207, 105);
+      border-right: 2px solid rgb(241, 207, 105);
+      border-bottom: 2px solid rgb(241, 207, 105);
+      border-left: 2px solid rgb(241, 207, 105);
+      margin: 15px 0px 0px;
+      padding: 15px 40px;
+      max-height: none;
+      min-height: 0px;
+      max-width: none;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: static;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      float: none;
+      display: inline-block;
+      clear: none;
+      z-index: auto;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: hidden;
+      cursor: pointer;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0.35s ease-in-out 0s;
+      outline: rgb(35, 35, 35) dashed 0px;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 40px;
+      border-top-right-radius: 40px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    .btn-circle-btn-theme-border-btn-md:hover {
+      background-color: rgb(241, 207, 105);
+    }
+
+    /* .int-container {
     text-align: left;
     flex-direction: column;
     padding-top: 2em;
@@ -172,3 +877,5 @@
   .int-container-testimony:hover youtube-player {
     box-shadow: 0 0 15px 10px rgb(109, 109, 109);
   }
+ */
+  

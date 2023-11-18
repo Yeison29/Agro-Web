@@ -1,4 +1,1718 @@
-.dsc-news {
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;800;900&display=swap');
+
+
+/* ============================================================== 
+     # Services 
+=================================================================== */
+
+@media only screen and (min-width: 1367px) {
+  .services-area .container-full {
+    margin-left: calc((100% - 1140px)/ 2);
+    width: auto;
+    min-width: auto;
+    max-width: inherit;
+  }
+}
+
+@media only screen and (min-width: 767px) and (max-width: 1376px) {
+  .services-area .services-items .single-item {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+
+
+/* ============================================================== 
+     # Services Version Three 
+=================================================================== */
+
+
+.thumb-services-area .info {
+  padding: 30px;
+  padding-top: 0;
+}
+
+.thumb-services-area .item {
+  background: #ffffff;
+}
+
+.thumb-services-area .thumb {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.thumb-services-area .thumb::after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  height: 50px;
+  width: 100%;
+  background: url(../../../../assets/images/brush-up.gif);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+
+.thumb-services-area .content {
+  position: relative;
+}
+
+.thumb-services-area .content .icon i {
+  display: inline-block;
+  font-size: 50px;
+  height: 100px;
+  width: 80px;
+  background: #ffffff;
+  color: #017d3f;
+  text-align: center;
+  line-height: 100px;
+  position: absolute;
+  top: -85px;
+  left: 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 30px 0 rgb(214 215 216 / 57%);
+  z-index: 1;
+}
+
+.thumb-services-area .content {
+  margin: 0;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 30px;
+  padding-top: 40px;
+}
+
+.thumb-services-area .content p {
+margin-bottom: 0;
+}
+
+.thumb-services-area .content a.btn {
+margin-top: 20px;
+}
+
+.thumb-services-area .services-carousel.owl-carousel .owl-nav {
+margin: 0;
+}
+
+.thumb-services-area .services-carousel.owl-carousel .owl-nav .owl-prev, 
+.thumb-services-area .services-carousel.owl-carousel .owl-nav .owl-next {
+color: #ffffff;
+font-size: 20px;
+background: transparent;
+height: 45px;
+left: 0;
+line-height: 50px;
+margin-top: -23px;
+padding: 0;
+position: absolute;
+text-align: center;
+top: 50%;
+transition: all 0.35s ease-in-out;
+-webkit-transition: all 0.35s ease-in-out;
+-moz-transition: all 0.35s ease-in-out;
+-ms-transition: all 0.35s ease-in-out;
+-o-transition: all 0.35s ease-in-out;
+width: 45px;
+}
+
+.thumb-services-area .services-carousel.owl-carousel .owl-nav .owl-prev {
+left: -70px;
+}
+
+.thumb-services-area .services-carousel.owl-carousel .owl-nav .owl-next {
+right: -70px;
+}
+
+.thumb-services-area .services-carousel.owl-carousel .owl-nav .owl-next {
+left: auto;
+}
+.bg-gradient-green {
+  background: rgb(1,125,63);
+  background: linear-gradient(97deg, rgba(1,125,63,1) 36%, rgba(252,197,27,1) 100%);
+}
+
+.thumb-services-area.half-bg.bg-gradient-green.default-padding.bottom-less {
+	/* Font & Text */
+	font-family: Heebo, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	letter-spacing: normal;
+	line-height: 30px;
+	text-decoration: none solid rgb(102, 102, 102);
+	text-align: left;
+	text-indent: 0px;
+	text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px;
+
+	/* Color & Background */
+	background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: linear-gradient(97deg, rgb(1, 125, 63) 36%, rgb(252, 197, 27) 100%);
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	color: rgb(102, 102, 102);
+
+	/* Box */
+	height: 925.5px;
+	width: 1256px;
+	border: 0px none rgb(102, 102, 102);
+	border-top: 0px none rgb(102, 102, 102);
+	border-right: 0px none rgb(102, 102, 102);
+	border-bottom: 0px none rgb(102, 102, 102);
+	border-left: 0px none rgb(102, 102, 102);
+	margin: 0px;
+	padding: 120px 0px 90px;
+	max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px;
+
+	/* Positioning */
+	position: relative;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px;
+	float: none;
+	display: block;
+	clear: none;
+	z-index: 1;
+
+	/* List */
+	list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside;
+
+	/* Table */
+	border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto;
+
+	/* Miscellaneous */
+	overflow: visible;
+	cursor: auto;
+	visibility: visible;
+
+	/* Effects */
+	transform: none;
+	transition: all 0s ease 0s;
+	outline-offset: 0px;
+	box-sizing: border-box;
+	resize: none;
+	text-shadow: none;
+	text-overflow: clip;
+	word-wrap: normal;
+	box-shadow: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+
+  .text-invisible {
+    /* Font & Text */
+    font-family: Heebo, sans-serif;
+    font-size: 100px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 900;
+    letter-spacing: normal;
+    line-height: 120px;
+    text-decoration: none solid rgb(255, 255, 255);
+    text-align: left;
+    text-indent: 0px;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+  
+    /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(255, 255, 255);
+    opacity: 0.03;
+  
+    /* Box */
+    height: 120px;
+    width: 464.609px;
+    border: 0px none rgb(255, 255, 255);
+    border-top: 0px none rgb(255, 255, 255);
+    border-right: 0px none rgb(255, 255, 255);
+    border-bottom: 0px none rgb(255, 255, 255);
+    border-left: 0px none rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: absolute;
+    top: -45px;
+    bottom: 99px;
+    right: 10.3906px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: -1;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: none;
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  
+  .services-content-box {
+    /* Font & Text */
+    font-family: Heebo, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 30px;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+  
+    /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(102, 102, 102);
+  
+    /* Box */
+    height: 481.5px;
+    width: 1256px;
+    border: 0px none rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 0px none rgb(102, 102, 102);
+    border-left: 0px none rgb(102, 102, 102);
+    margin: 0px;
+    padding: 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: static;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: none;
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  
+    .container {
+      /* Font & Text */
+      font-family: Heebo, sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 30px;
+      text-decoration: none solid rgb(102, 102, 102);
+      text-align: left;
+      text-indent: 0px;
+      text-transform: none;
+      vertical-align: baseline;
+      white-space: normal;
+      word-spacing: 0px;
+    
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(102, 102, 102);
+    
+      /* Box */
+      height: 481.5px;
+      width: 1140px;
+      border: 0px none rgb(102, 102, 102);
+      border-top: 0px none rgb(102, 102, 102);
+      border-right: 0px none rgb(102, 102, 102);
+      border-bottom: 0px none rgb(102, 102, 102);
+      border-left: 0px none rgb(102, 102, 102);
+      margin: 0px 58px;
+      padding: 0px 15px;
+      max-height: none;
+      min-height: 0px;
+      max-width: 1140px;
+      min-width: 0px;
+    
+      /* Positioning */
+      position: static;
+      top: auto;
+      bottom: auto;
+      right: auto;
+      left: auto;
+      float: none;
+      display: block;
+      clear: none;
+      z-index: auto;
+    
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+    
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+    
+      /* Miscellaneous */
+      overflow: visible;
+      cursor: auto;
+      visibility: visible;
+    
+      /* Effects */
+      transform: none;
+      transition: all 0s ease 0s;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: none;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+  }
+  
+  .thumb {
+    /* Font & Text */
+    font-family: Heebo, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 30px;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+  
+    /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(102, 102, 102);
+  
+    /* Box */
+    height: 262.5px;
+    width: 350px;
+    border: 0px none rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 0px none rgb(102, 102, 102);
+    border-left: 0px none rgb(102, 102, 102);
+    margin: 0px;
+    padding: 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: 1;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: hidden;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: none;
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  
+  .owl-stage {
+    /* Font & Text */
+    font-family: Heebo, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 30px;
+    text-decoration: none solid rgb(102, 102, 102);
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+  
+    /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(102, 102, 102);
+  
+    /* Box */
+    height: 481.5px;
+    width: 1520px;
+    border: 0px none rgb(102, 102, 102);
+    border-top: 0px none rgb(102, 102, 102);
+    border-right: 0px none rgb(102, 102, 102);
+    border-bottom: 0px none rgb(102, 102, 102);
+    border-left: 0px none rgb(102, 102, 102);
+    margin: 0px;
+    padding: 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: relative;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    float: none;
+    display: block;
+    clear: none;
+    z-index: auto;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+  }
+  
+  .row {
+    /* Font & Text */
+    font-family: Heebo, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 30px;
+    text-decoration: none solid rgb(248, 249, 250);
+    text-align: left;
+    text-indent: 0px;
+    text-transform: none;
+    vertical-align: baseline;
+    white-space: normal;
+    word-spacing: 0px;
+  
+    /* Color & Background */
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    background-position: 0% 0%;
+    background-repeat: repeat;
+    color: rgb(248, 249, 250);
+  
+    /* Box */
+    height: 172.992px;
+    width: 1140px;
+    border: 0px none rgb(248, 249, 250);
+    border-top: 0px none rgb(248, 249, 250);
+    border-right: 0px none rgb(248, 249, 250);
+    border-bottom: 0px none rgb(248, 249, 250);
+    border-left: 0px none rgb(248, 249, 250);
+    margin: 0px -15px;
+    padding: 0px;
+    max-height: none;
+    min-height: 0px;
+    max-width: none;
+    min-width: 0px;
+  
+    /* Positioning */
+    position: static;
+    top: auto;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    float: none;
+    display: flex;
+    clear: none;
+    z-index: auto;
+  
+    /* List */
+    list-style-image: none;
+    list-style-type: disc;
+    list-style-position: outside;
+  
+    /* Table */
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    caption-side: top;
+    empty-cells: show;
+    table-layout: auto;
+  
+    /* Miscellaneous */
+    overflow: visible;
+    cursor: auto;
+    visibility: visible;
+  
+    /* Effects */
+    transform: none;
+    transition: all 0s ease 0s;
+    outline-offset: 0px;
+    box-sizing: border-box;
+    resize: none;
+    text-shadow: none;
+    text-overflow: clip;
+    word-wrap: normal;
+    box-shadow: none;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
+  
+  @media (min-width: 1200px){
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 992px){
+    .container, .container-lg, .container-md, .container-sm {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 768px){
+    .container, .container-md, .container-sm {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 576px){
+    .container, .container-sm {
+      max-width: 540px;
+    }
+  }
+  @media (min-width: 1200px){
+    .container {
+      max-width: 1140px;
+    }
+  }
+  @media (min-width: 992px){
+    .container {
+      max-width: 960px;
+    }
+  }
+  @media (min-width: 768px){
+    .container {
+      max-width: 720px;
+    }
+  }
+  @media (min-width: 576px){
+    .container {
+      max-width: 540px;
+    }
+  }
+  .container {
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      padding-top: 15px;
+      margin-right: 655px;
+      margin-left: auto;
+      margin-top: auto;
+      display: grid;
+  
+      .col-lg-5 {
+        /* Font & Text */
+        font-family: Heebo, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 30px;
+        text-decoration: none solid rgb(248, 249, 250);
+        text-align: left;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+      
+        /* Color & Background */
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(248, 249, 250);
+      
+        /* Box */
+        height: 174px;
+        width: 475px;
+        border: 0px none rgb(248, 249, 250);
+        border-top: 0px none rgb(248, 249, 250);
+        border-right: 0px none rgb(248, 249, 250);
+        border-bottom: 0px none rgb(248, 249, 250);
+        border-left: 0px none rgb(248, 249, 250);
+        margin: 0px;
+        padding: 0px 15px;
+        max-height: none;
+        min-height: auto;
+        max-width: 41.6667%;
+        min-width: auto;
+      
+        /* Positioning */
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        float: none;
+        display: block;
+        clear: none;
+        z-index: auto;
+      
+        /* List */
+        list-style-image: none;
+        list-style-type: disc;
+        list-style-position: outside;
+      
+        /* Table */
+        border-collapse: separate;
+        border-spacing: 0px 0px;
+        caption-side: top;
+        empty-cells: show;
+        table-layout: auto;
+      
+        /* Miscellaneous */
+        overflow: visible;
+        cursor: auto;
+        visibility: visible;
+      
+        /* Effects */
+        transform: none;
+        transition: all 0s ease 0s;
+        outline-offset: 0px;
+        box-sizing: border-box;
+        resize: none;
+        text-shadow: none;
+        text-overflow: clip;
+        word-wrap: normal;
+        box-shadow: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+  
+        h5 {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 600;
+          letter-spacing: normal;
+          line-height: 24px;
+          text-decoration: none solid rgb(255, 255, 255);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: uppercase;
+          vertical-align: baseline;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(255, 255, 255);
+        
+          /* Box */
+          height: 24px;
+          width: 121.438px;
+          border: 0px none rgb(255, 255, 255);
+          border-top: 0px none rgb(255, 255, 255);
+          border-right: 0px none rgb(255, 255, 255);
+          border-bottom: 0px none rgb(255, 255, 255);
+          border-left: 0px none rgb(255, 255, 255);
+          margin: 0px 0px 25px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: relative;
+          top: 0px;
+          bottom: 0px;
+          right: 0px;
+          left: 0px;
+          float: none;
+          display: inline-block;
+          clear: none;
+          z-index: 1;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: visible;
+          cursor: auto;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0s ease 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+        h2 {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 40px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 600;
+          letter-spacing: normal;
+          line-height: 48px;
+          text-decoration: none solid rgb(255, 255, 255);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: none;
+          vertical-align: baseline;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(255, 255, 255);
+        
+          /* Box */
+          height: 96px;
+          width: 445px;
+          border: 0px none rgb(255, 255, 255);
+          border-top: 0px none rgb(255, 255, 255);
+          border-right: 0px none rgb(255, 255, 255);
+          border-bottom: 0px none rgb(255, 255, 255);
+          border-left: 0px none rgb(255, 255, 255);
+          margin: 0px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: block;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: visible;
+          cursor: auto;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0s ease 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+  
+      .col-lg-6.offset-lg-1 {
+        /* Font & Text */
+        font-family: Heebo, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 30px;
+        text-decoration: none solid rgb(248, 249, 250);
+        text-align: left;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+      
+        /* Color & Background */
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(248, 249, 250);
+      
+        /* Box */
+        height: 174px;
+        width: 570px;
+        border: 0px none rgb(248, 249, 250);
+        border-top: 0px none rgb(248, 249, 250);
+        border-right: 0px none rgb(248, 249, 250);
+        border-bottom: 0px none rgb(248, 249, 250);
+        border-left: 0px none rgb(248, 249, 250);
+        margin: 0px 0px 0px 95px;
+        padding: 0px 15px;
+        max-height: none;
+        min-height: auto;
+        max-width: 50%;
+        min-width: auto;
+      
+        /* Positioning */
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        float: none;
+        display: block;
+        clear: none;
+        z-index: auto;
+      
+        /* List */
+        list-style-image: none;
+        list-style-type: disc;
+        list-style-position: outside;
+      
+        /* Table */
+        border-collapse: separate;
+        border-spacing: 0px 0px;
+        caption-side: top;
+        empty-cells: show;
+        table-layout: auto;
+      
+        /* Miscellaneous */
+        overflow: visible;
+        cursor: auto;
+        visibility: visible;
+      
+        /* Effects */
+        transform: none;
+        transition: all 0s ease 0s;
+        outline-offset: 0px;
+        box-sizing: border-box;
+        resize: none;
+        text-shadow: none;
+        text-overflow: clip;
+        word-wrap: normal;
+        box-shadow: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+  
+        p {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 15px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 400;
+          letter-spacing: normal;
+          line-height: 30px;
+          text-decoration: none solid rgb(255, 255, 255);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: none;
+          vertical-align: baseline;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(255, 255, 255);
+        
+          /* Box */
+          height: 90px;
+          width: 540px;
+          border: 0px none rgb(255, 255, 255);
+          border-top: 0px none rgb(255, 255, 255);
+          border-right: 0px none rgb(255, 255, 255);
+          border-bottom: 0px none rgb(255, 255, 255);
+          border-left: 0px none rgb(255, 255, 255);
+          margin: -5px 0px 0px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: block;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: visible;
+          cursor: auto;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0s ease 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+  
+        .btn.circle.btn-md.btn-theme.effect {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 600;
+          letter-spacing: normal;
+          line-height: 25px;
+          text-decoration: none solid rgb(35, 35, 35);
+          text-align: center;
+          text-indent: 0px;
+          text-transform: capitalize;
+          vertical-align: middle;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgb(241, 207, 105);
+          background-image: none;
+          background-position: 0px 0px;
+          background-repeat: repeat;
+          color: rgb(35, 35, 35);
+        
+          /* Box */
+          height: 59px;
+          width: 159.156px;
+          border: 2px solid rgb(241, 207, 105);
+          border-top: 2px solid rgb(241, 207, 105);
+          border-right: 2px solid rgb(241, 207, 105);
+          border-bottom: 2px solid rgb(241, 207, 105);
+          border-left: 2px solid rgb(241, 207, 105);
+          margin: 30px 0px 0px;
+          padding: 15px 40px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: inline-block;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: hidden;
+          cursor: pointer;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0.35s ease-in-out 0s;
+          
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 40px;
+          border-top-right-radius: 40px;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+
+        }
+        
+      }
+      .services-items.services-carousel.owl-carousel.owl-theme{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+        position: relative;
+        top: 40px;
+      }
+
+      .thumb {
+        /* Font & Text */
+        font-family: Heebo, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        letter-spacing: normal;
+        line-height: 30px;
+        text-decoration: none solid rgb(102, 102, 102);
+        text-align: left;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+      
+        /* Color & Background */
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(102, 102, 102);
+      
+        /* Box */
+        height: 262.5px;
+        width: 356px;
+        border: 0px none rgb(102, 102, 102);
+        border-top: 0px none rgb(102, 102, 102);
+        border-right: 0px none rgb(102, 102, 102);
+        border-bottom: 0px none rgb(102, 102, 102);
+        border-left: 0px none rgb(102, 102, 102);
+        margin: 0px;
+        padding: 0px;
+        max-height: none;
+        min-height: 0px;
+        max-width: none;
+        min-width: 0px;
+      
+        /* Positioning */
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        float: none;
+        display: block;
+        clear: none;
+        z-index: 1;
+      
+        /* List */
+        list-style-image: none;
+        list-style-type: disc;
+        list-style-position: outside;
+      
+        /* Table */
+        border-collapse: separate;
+        border-spacing: 0px 0px;
+        caption-side: top;
+        empty-cells: show;
+        table-layout: auto;
+      
+        /* Miscellaneous */
+        overflow: hidden;
+        cursor: auto;
+        visibility: visible;
+      
+        /* Effects */
+        transform: none;
+        transition: all 0s ease 0s;
+        outline-offset: 0px;
+        box-sizing: border-box;
+        resize: none;
+        text-shadow: none;
+        text-overflow: clip;
+        word-wrap: normal;
+        box-shadow: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        img {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 15px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 400;
+          letter-spacing: normal;
+          line-height: 30px;
+          text-decoration: none solid rgb(102, 102, 102);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: none;
+          vertical-align: middle;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(102, 102, 102);
+        
+          /* Box */
+          height: 262.5px;
+          width: 356px;
+          border: 0px none rgb(102, 102, 102);
+          border-top: 0px none rgb(102, 102, 102);
+          border-right: 0px none rgb(102, 102, 102);
+          border-bottom: 0px none rgb(102, 102, 102);
+          border-left: 0px none rgb(102, 102, 102);
+          margin: 0px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: 100%;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: block;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: clip;
+          cursor: auto;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0s ease 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+
+      .content {
+        /* Font & Text */
+        font-family: Heebo, sans-serif;
+        font-size: 15px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 600;
+        letter-spacing: normal;
+        line-height: 30px;
+        text-decoration: none solid rgb(102, 102, 102);
+        text-align: left;
+        text-indent: 0px;
+        text-transform: none;
+        vertical-align: baseline;
+        white-space: normal;
+        word-spacing: 0px;
+      
+        /* Color & Background */
+        background-attachment: scroll;
+        background-color: rgba(0, 0, 0, 0);
+        background-image: none;
+        background-position: 0% 0%;
+        background-repeat: repeat;
+        color: rgb(102, 102, 102);
+      
+        /* Box */
+        height: 199px;
+        width: 350px;
+        border: 0px none rgb(102, 102, 102);
+        border-top: 0px none rgb(102, 102, 102);
+        border-right: 0px none rgb(102, 102, 102);
+        border-bottom: 0px none rgb(102, 102, 102);
+        border-left: 0px none rgb(102, 102, 102);
+        margin: 0px 0px 20px;
+        padding: 40px 30px 30px;
+        max-height: none;
+        min-height: 0px;
+        max-width: none;
+        min-width: 0px;
+      
+        /* Positioning */
+        position: relative;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        float: none;
+        display: block;
+        clear: none;
+        z-index: auto;
+      
+        /* List */
+        list-style-image: none;
+        list-style-type: disc;
+        list-style-position: outside;
+      
+        /* Table */
+        border-collapse: separate;
+        border-spacing: 0px 0px;
+        caption-side: top;
+        empty-cells: show;
+        table-layout: auto;
+      
+        /* Miscellaneous */
+        overflow: visible;
+        cursor: auto;
+        visibility: visible;
+      
+        /* Effects */
+        transform: none;
+        transition: all 0s ease 0s;
+        outline-offset: 0px;
+        box-sizing: border-box;
+        resize: none;
+        text-shadow: none;
+        text-overflow: clip;
+        word-wrap: normal;
+        box-shadow: none;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        a {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 20px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 600;
+          letter-spacing: normal;
+          line-height: 24px;
+          text-decoration: none solid rgb(35, 35, 35);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: none;
+          vertical-align: baseline;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(35, 35, 35);
+        
+          /* Box */
+          height: auto;
+          width: auto;
+          border: 0px none rgb(35, 35, 35);
+          border-top: 0px none rgb(35, 35, 35);
+          border-right: 0px none rgb(35, 35, 35);
+          border-bottom: 0px none rgb(35, 35, 35);
+          border-left: 0px none rgb(35, 35, 35);
+          margin: 0px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: inline;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: visible;
+          cursor: pointer;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0.35s ease-in-out 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+
+        p {
+          /* Font & Text */
+          font-family: Heebo, sans-serif;
+          font-size: 15px;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 400;
+          letter-spacing: normal;
+          line-height: 30px;
+          text-decoration: none solid rgb(102, 102, 102);
+          text-align: left;
+          text-indent: 0px;
+          text-transform: none;
+          vertical-align: baseline;
+          white-space: normal;
+          word-spacing: 0px;
+        
+          /* Color & Background */
+          background-attachment: scroll;
+          background-color: rgba(0, 0, 0, 0);
+          background-image: none;
+          background-position: 0% 0%;
+          background-repeat: repeat;
+          color: rgb(102, 102, 102);
+        
+          /* Box */
+          height: 90px;
+          width: 290px;
+          border: 0px none rgb(102, 102, 102);
+          border-top: 0px none rgb(102, 102, 102);
+          border-right: 0px none rgb(102, 102, 102);
+          border-bottom: 0px none rgb(102, 102, 102);
+          border-left: 0px none rgb(102, 102, 102);
+          margin: 0px;
+          padding: 0px;
+          max-height: none;
+          min-height: 0px;
+          max-width: none;
+          min-width: 0px;
+        
+          /* Positioning */
+          position: static;
+          top: auto;
+          bottom: auto;
+          right: auto;
+          left: auto;
+          float: none;
+          display: block;
+          clear: none;
+          z-index: auto;
+        
+          /* List */
+          list-style-image: none;
+          list-style-type: disc;
+          list-style-position: outside;
+        
+          /* Table */
+          border-collapse: separate;
+          border-spacing: 0px 0px;
+          caption-side: top;
+          empty-cells: show;
+          table-layout: auto;
+        
+          /* Miscellaneous */
+          overflow: visible;
+          cursor: auto;
+          visibility: visible;
+        
+          /* Effects */
+          transform: none;
+          transition: all 0s ease 0s;
+          outline-offset: 0px;
+          box-sizing: border-box;
+          resize: none;
+          text-shadow: none;
+          text-overflow: clip;
+          word-wrap: normal;
+          box-shadow: none;
+          border-top-left-radius: 0px;
+          border-top-right-radius: 0px;
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+  }
+}
+
+
+
+
+
+/* .dsc-news {
     width: 100%;
     height: 500px;
     display: flex;
@@ -128,4 +1842,4 @@
       left: 0;
       background: rgb(0, 0, 0, 0.48);
     }
-  }
+  } */

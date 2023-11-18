@@ -12,6 +12,7 @@ import { NEW_DATA_ITEMS } from '../../constants/news.const';
 import { MatIconModule } from '@angular/material/icon';
 import {FooterComponent} from "../../../public/footer/footer.component";
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
