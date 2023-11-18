@@ -63,7 +63,7 @@
 
           <mat-form-field>
             <mat-label>Email</mat-label>
-            <input type="email" #email matInput placeholder="Ex. pat@example.com" formControlName="email_user">
+            <input type="email" #email matInput placeholder="Ej. pat@example.com" formControlName="email_user">
             <mat-hint align="start">Max<strong> 250 </strong> caracteres</mat-hint>
             <mat-hint align="end">{{email.value.length}} / 250</mat-hint>
             @if (form.get('email_user')?.errors?.['email'] && !form.get('email')?.errors?.['required']) {
@@ -127,7 +127,7 @@
         </div>
       </form>
       <form class="form" [formGroup]="form_password">
-        <div class="form-sign-up">
+        <div class="form-sign-up form-sign-up-password">
 
           <mat-form-field>
             <mat-label>Contraseña</mat-label>
@@ -152,8 +152,8 @@
             }
           </mat-form-field>
         </div>
+        <button (click)="submitSingUp()">Registrarse</button>
       </form>
-      <button (click)="submitSingUp()">Registrarse</button>
     </div>
     <div class="form-container sign-in-container">
       <div class="social-container">
@@ -167,7 +167,7 @@
 
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input type="email" #email_login matInput placeholder="Ex. pat@example.com" formControlName="username">
+          <input type="email" #email_login matInput placeholder="Ej. pat@example.com" formControlName="username">
           <mat-hint align="start">Ingrese<strong> correo </strong></mat-hint>
           @if (form_login.get('username')?.errors?.['email'] && !form_login.get('username')?.errors?.['required']) {
           <mat-error>Correo <strong>invalido</strong></mat-error>

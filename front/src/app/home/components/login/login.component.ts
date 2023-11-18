@@ -163,7 +163,7 @@ export class LoginComponent implements OnInit {
       if (!this.form.invalid && !this.form_password.invalid) {
         this.serHome.addUser(this.mapData()).subscribe(
           (res: any) => {
-            this.sucessAlert();
+            this.sucessAlert('Registro exitoso');
             this.removeActivePanel();
           },
           (err) => {
@@ -182,18 +182,18 @@ export class LoginComponent implements OnInit {
     this.serHome.getToken(this.form_login.value).subscribe(
       (res: any) => {
         localStorage.setItem('access_token', res.access_token);
-        this.sucessAlert();
+        this.sucessAlert('Inicio Sesión exitoso');
         this.form_login.reset();
         this.router.navigate(['/home']);
       },
       (err) => {
-        this.errorAlert('Registro Fallido');
+        this.errorAlert('Inicio sesión Fallido');
       }
     );
   }
 
-  sucessAlert() {
-    this.snackBar.open('Registro exitoso', '👍', {
+  sucessAlert(msg: any) {
+    this.snackBar.open(msg, '👍', {
       duration: 3000,
       horizontalPosition: 'end',
       verticalPosition: 'top',
