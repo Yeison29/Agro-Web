@@ -1,52 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ReactiveFormsModule, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm, Form, FormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  Validators,
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  FormGroup,
+} from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import moment from 'moment';
 
 import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { HomeService } from '../../home.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, ReactiveFormsModule,
-    MatFormFieldModule, MatInputModule, MatSelectModule,
-    MatDatepickerModule, MatNativeDateModule
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrl: './login.component.scss',
 })
-export class LoginComponent implements OnInit  {
+export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
+
   hide = true;
-  right_panel : string = "";
+  right_panel: string = '';
   icon_git_hub = faCodeBranch;
   icon_facebook = faThumbsUp;
   icon_instagram = faHeart;
-  type_documents : any = [];
-  genders : any = [];
-  departments : any = [];
-  municipalities : any = [];
+  type_documents: any = [];
+  genders: any = [];
+  departments: any = [];
+  municipalities: any = [];
   form: FormGroup;
   form_password: FormGroup;
+  form_login: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private serHome: HomeService,
     private snackBar: MatSnackBar,
-    // private ser: ProductServiceService,
-    // private router: Router,
-    // private snackBar: MatSnackBar
+    private router: Router
   ) {
     this.form = fb.group({
       name_user: ['', [Validators.required]],
@@ -55,14 +71,18 @@ export class LoginComponent implements OnInit  {
       phone_user: ['', [Validators.required]],
       id_document_user: ['', [Validators.required]],
       birthdate_user: ['', [Validators.required]],
-      type_document_id: [null,[Validators.required]],
+      type_document_id: [null, [Validators.required]],
       gender_id: [null, [Validators.required]],
       municipality_id: [null, [Validators.required]],
-      department: [null,[Validators.required]]
+      department: [null, [Validators.required]],
     });
     this.form_password = fb.group({
-      auth_password: ['',[Validators.required]],
-      auth_password2: ['',[Validators.required]]
+      auth_password: ['', [Validators.required]],
+      auth_password2: ['', [Validators.required]],
+    });
+    this.form_login = fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
@@ -72,35 +92,28 @@ export class LoginComponent implements OnInit  {
     this.getAllDepartments(1);
   }
 
-  getAllTypeDocuments(){
+  getAllTypeDocuments() {
     this.serHome.getAllTypeDocuments().subscribe((res: any) => {
       this.type_documents = res;
       console.log(res);
     });
   }
 
-  // getAllCountries(){
-  //   this.serHome.getAllCountries().subscribe((res: any) => {
-  //     this.genders = res;
-  //     console.log(res);
-  //   });
-  // }
-
-  getAllDepartments(id: any){
+  getAllDepartments(id: any) {
     this.serHome.getAllDepartments(id).subscribe((res: any) => {
       this.departments = res;
       console.log(res);
     });
   }
 
-  getAllMunicipalities(id: any){
+  getAllMunicipalities(id: any) {
     this.serHome.getAllMunicipalities(id).subscribe((res: any) => {
       this.municipalities = res;
       console.log(res);
     });
   }
 
-  getAllGenders(){
+  getAllGenders() {
     this.serHome.getAllGenders().subscribe((res: any) => {
       this.genders = res;
       console.log(res);
@@ -108,37 +121,75 @@ export class LoginComponent implements OnInit  {
   }
 
   onDepartamento(id: any) {
-    console.log(id)
+    console.log(id);
     this.getAllMunicipalities(id);
   }
 
-
-  activeActivePanel(){
-    this.right_panel = "right-panel-active";
+  activeActivePanel() {
+    this.form_login.reset();
+    this.right_panel = 'right-panel-active';
   }
 
-  removeActivePanel(){
-    this.right_panel = "";
+  removeActivePanel() {
+    this.form_password.reset();
+    this.form.reset();
+    this.right_panel = '';
   }
 
-  submit(){
-    if(this.form_password.value.auth_password2 === this.form_password.value.auth_password){
-      if(!this.form.invalid && !this.form_password.invalid){
-        this.form.removeControl('department');
-        this.serHome.addUser(this.form.value).subscribe(
+  mapData() {
+    return {
+      user: {
+        name_user: this.form.value.name_user,
+        lastname_user: this.form.value.lastname_user,
+        email_user: this.form.value.email_user,
+        phone_user: this.form.value.phone_user,
+        id_document_user: this.form.value.id_document_user,
+        birthdate_user: moment(this.form.value.birthdate_user).format('YYYY-MM-DD'),
+        type_document_id: this.form.value.type_document_id,
+        gender_id: this.form.value.gender_id,
+        municipality_id: this.form.value.municipality_id,
+      },
+      auth: {
+        auth_password: this.form_password.value.auth_password,
+      },
+    };
+  }
+
+  submitSingUp() {
+    if (
+      this.form_password.value.auth_password2 ===
+      this.form_password.value.auth_password
+    ) {
+      if (!this.form.invalid && !this.form_password.invalid) {
+        this.serHome.addUser(this.mapData()).subscribe(
           (res: any) => {
             this.sucessAlert();
-            console.log(res);
+            this.removeActivePanel();
           },
           (err) => {
             this.errorAlert('Registro Fallido');
           }
         );
-        this.form.reset();
         this.form_password.reset();
+        this.form.reset();
       }
+    }else {
+      this.errorAlert('Contraseñas no coinciden');
     }
-    this.errorAlert('Contraseñas no coinciden');
+  }
+
+  submit(){
+    this.serHome.getToken(this.form_login.value).subscribe(
+      (res: any) => {
+        localStorage.setItem('access_token', res.access_token);
+        this.sucessAlert();
+        this.form_login.reset();
+        this.router.navigate(['/home']);
+      },
+      (err) => {
+        this.errorAlert('Registro Fallido');
+      }
+    );
   }
 
   sucessAlert() {
@@ -158,12 +209,18 @@ export class LoginComponent implements OnInit  {
       panelClass: ['error-snackbar'],
     });
   }
-
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
     const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  } 
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
 }
