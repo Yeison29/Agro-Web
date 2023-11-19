@@ -1,18 +1,14 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InewItem } from '../news/Inews-items.metadata';
 
 @Component({
-  selector: 'app-introduction',
+  selector: 'app-datafigures',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './introduction.component.html',
-  styleUrl: './introduction.component.scss'
+  templateUrl: './datafigures.component.html',
+  styleUrl: './datafigures.component.scss'
 })
-export class IntroductionComponent implements AfterViewInit {
-
-  @Input() items: InewItem[] = [];
-
+export class DatafiguresComponent implements AfterViewInit {
   @ViewChildren('timerElement') timerElements!: QueryList<ElementRef>;
 
   ngAfterViewInit(): void {
@@ -68,6 +64,4 @@ export class IntroductionComponent implements AfterViewInit {
 
     elements.forEach(element => observer.observe(element));
   }
-
 }
-
