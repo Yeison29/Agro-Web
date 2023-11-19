@@ -18,6 +18,9 @@
           <li *ngIf="!esRutaAbout()" (click)="navigateTo('about')">
             <a (click)="navigateTo('about')">sobre nosotros</a>
           </li>
+          <li *ngIf="!esRutaFarmers()" (click)="navigateTo('farmers')">
+            <a (click)="navigateTo('farmers')">Farmers</a>
+          </li>
         </ul>
       </nav>
       <div Class="menu" (click)="drop()" [class]="menu" >
