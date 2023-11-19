@@ -60,4 +60,14 @@ export class HomeService {
       .set('grant_type', 'password');
     return this.http.post(`http://127.0.0.1:8000/token`, body, { headers: headers });
   }
+
+  activateAccount(code: any):  Observable<any>{
+    const data_array = code.split('+');
+    const data = {
+      auth_id: parseInt(data_array[0], 10),
+      code: data_array[1]
+    }
+    return this.http.put(`${this.baseUrl}/activate`, data);
+  }
+
 }

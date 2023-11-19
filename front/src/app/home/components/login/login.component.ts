@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar,
     private router: Router
   ) {
+    
     this.form = fb.group({
       name_user: ['', [Validators.required]],
       lastname_user: ['', [Validators.required]],
@@ -160,10 +161,10 @@ export class LoginComponent implements OnInit {
       this.form_password.value.auth_password2 ===
       this.form_password.value.auth_password
     ) {
-      if (!this.form.invalid && !this.form_password.invalid) {
+      if (this.form.valid && this.form_password.valid) {
         this.serHome.addUser(this.mapData()).subscribe(
           (res: any) => {
-            this.sucessAlert('Registro exitoso');
+            this.sucessAlert('Registro exitoso, verifique su correo para activar la cuenta');
             this.removeActivePanel();
           },
           (err) => {
@@ -179,17 +180,19 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    this.serHome.getToken(this.form_login.value).subscribe(
-      (res: any) => {
-        localStorage.setItem('access_token', res.access_token);
-        this.sucessAlert('Inicio Sesión exitoso');
-        this.form_login.reset();
-        this.router.navigate(['/home']);
-      },
-      (err) => {
-        this.errorAlert('Inicio sesión Fallido');
-      }
-    );
+    if(this.form_login.valid){
+      this.serHome.getToken(this.form_login.value).subscribe(
+        (res: any) => {
+          localStorage.setItem('access_token', res.access_token);
+          this.sucessAlert('Inicio Sesión exitoso');
+          this.form_login.reset();
+          this.router.navigate(['/home']);
+        },
+        (err) => {
+          this.errorAlert(err.error.detail);
+        }
+      );
+    }
   }
 
   sucessAlert(msg: any) {
