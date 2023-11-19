@@ -4,6 +4,13 @@
      # About Version Two 
 =================================================================== */
 
+.achivement{
+  position: relative;
+  top: 6%;
+}
+
+
+
 .about-content-area {
   position: relative;
   z-index: 1;
@@ -571,15 +578,8 @@
       min-width: 0px;
     
       /* Positioning */
-      position: static;
-      top: auto;
-      bottom: auto;
-      right: auto;
-      left: auto;
-      float: none;
-      display: block;
-      clear: none;
-      z-index: auto;
+      position: relative;
+      top: 2.5rem;
     
       /* List */
       list-style-image: none;
