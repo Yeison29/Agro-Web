@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 2rem;
+}
+
+.container {
+    position: relative;
+    top: 3rem;
+}
+
+.init, 
+.doce {
+    width: 100%;
+}
+
+.container-boton {
+    position: relative;
+    top: 5.5rem;
+    left: 15%;
+    width: 70%;
+}
+
+.form-register-crops{
+    position: relative;
+    top: 5rem;
+    left: 15%;
+    width: 70%;
+}
+
+.mat-form-field{
+    width: 100%;
+}
+
+.btn.circle {
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+}
+
+.row.boton {
+    position: relative;
+    justify-content: center;
+
+    .col-4 {
+        position: relative;
+        justify-content: center;
+    }
+
+}
+
+a {
+    position: relative;
+    top: 0.5rem;
+}
+
+.btn-gradient,
+.btn-gradient:focus {
+    position: relative;
+    z-index: 1;
+    color: #232323 !important;
+    padding: 18px 40px !important;
+}
+
+.btn-gradient::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #fcc51b, #f1cf69);
+    transition: all 0.35s ease-in-out;
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(255, 136, 0, 0.5), inset 0 0 1px 1px #f6c738;
+}
+
+.btn-gradient.green {
+    color: #ffffff !important;
+}
+
+.btn-gradient.green::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(97deg, rgba(1, 125, 63, 1) 36%, rgba(252, 197, 27, 1) 100%);
+    transition: all 0.35s ease-in-out;
+    z-index: -1;
+    box-shadow: inherit;
+    cursor: pointer;
+}
+
+.btn-md {
+    padding: 15px 40px;
+}

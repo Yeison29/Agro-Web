@@ -3,6 +3,7 @@ import { HomeComponent } from './home/pages/home/home.component';
 import { ServicesComponent } from './home/pages/services/services.component';
 import {  StatisticsComponent } from "./home/pages/statistics/statistics.component";
 import { LoginComponent } from './home/components/login/login.component';
+import { CropsComponent } from './home/pages/crops/crops.component';
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'/home'},
@@ -10,4 +11,5 @@ export const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'crops', component: CropsComponent }
 ];
