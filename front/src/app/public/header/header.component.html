@@ -1,6 +1,6 @@
 <header Class="container-navbar">
   <div Class="logo">
-    <img src="../../assets/images/logo.svg" alt="">
+    <img src="../../../assets/images/logo.png" alt="">
   </div>
   <div Class="container-menu">
     <div Class="dropdown">
@@ -9,15 +9,17 @@
           <li *ngIf="!esRutaHome()" (click)="navigateTo('home')">
             <a (click)="navigateTo('home')">Home</a>
           </li>
-          <li *ngIf="!esRutaServices()" (click)="navigateTo('services')">
-            <a (click)="navigateTo('services')">servicios</a>
-          </li>
-          <li *ngIf="!esRutaStatistics()" (click)="navigateTo('statistics')">
-              <a (click)="navigateTo('statistics')">estadisticas</a>
-          </li>
-          <li *ngIf="!esRutaAbout()" (click)="navigateTo('about')">
-            <a (click)="navigateTo('about')">sobre nosotros</a>
-          </li>
+          @if(login()) {
+            <li *ngIf="!esRutaServices()" (click)="navigateTo('services')">
+              <a>servicios</a>
+            </li>
+            <li *ngIf="!esRutaStatistics()" (click)="navigateTo('statistics')">
+                <a>estadisticas</a>
+            </li>
+            <li *ngIf="!esRutaAbout()" (click)="navigateTo('prices')">
+              <a >tus cosechas</a>
+            </li>
+          }
         </ul>
       </nav>
       <div Class="menu" (click)="drop()" [class]="menu" >
@@ -25,5 +27,16 @@
       </div>
     </div>
   </div>
-  <button type="button">iniciar sesi&oacute;n</button>
+  @if(login()) {
+    <div class="profile">
+      {{name_user}}
+      <div class="profile-img">
+        <img src="https://static.vecteezy.com/system/resources/previews/000/495/460/non_2x/vector-profile-line-black-icon.jpg" alt="profile">
+      </div>
+      <a class="closet-senssion" (click)="closetSession()"><fa-icon [icon]="closet_senssion"></fa-icon></a>
+    </div>
+  }
+  @else {
+    <button (click)="navigateTo('login')" type="button">iniciar sesi&oacute;n</button>
+  }
 </header>

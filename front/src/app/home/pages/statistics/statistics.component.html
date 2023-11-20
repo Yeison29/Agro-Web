@@ -1,4 +1,28 @@
 <app-header></app-header>
-<div class="container-chart" style="width: 80%">
-  <canvas id="miGrafica"></canvas>
+<div class="container">
+  <form [formGroup]="form" class="selectCultivo">
+    <mat-form-field>
+      <mat-label>Cultivo</mat-label>
+      <mat-select formControlName="harvest" (selectionChange)="onChange($event.value)">
+          @for (type of harvests; track type) {
+              <mat-option [value]="type.id_harvest">{{type.code_harvest}} - {{type.name_harvest}}</mat-option>
+            }
+      </mat-select>
+      <mat-hint align="end">Seleccione un <strong>Cultivo</strong></mat-hint>
+      @if (form.get('harvest')?.errors?.['required']) {
+          <mat-error>Cultivo <strong>requerido</strong></mat-error>
+        }
+    </mat-form-field>
+  </form>
+  <div class="chart">
+    <canvas id="miGrafica"></canvas>
+  </div>
+  <div class="chats1">
+    <div class="chart1">
+      <app-municipality></app-municipality>
+    </div>
+    <div class="chart1">
+      <app-harvest></app-harvest>
+    </div>
+  </div>
 </div>

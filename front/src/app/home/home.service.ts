@@ -70,4 +70,16 @@ export class HomeService {
     return this.http.put(`${this.baseUrl}/activate`, data);
   }
 
+  getAllHarvestMunicipality(): Observable<any>{
+    return this.http.get(
+      `${this.baseUrl}/most-planted-crop-by-municipality`
+    );
+  }
+
+  getAllHarvests(): Observable<any>{
+    return this.http.get(
+      `${this.baseUrl}/most-widely-planted-crops`
+    );
+  }
+
 }

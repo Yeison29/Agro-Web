@@ -7,12 +7,41 @@
   text-transform: uppercase;
 }
 
-header{
+.container-navbar{
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   align-items: center;
   height: 85px;
   padding: 5px 20px 5px 5px;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-img {
+  border-radius: 5px;
+  border: 2px solid rgb(241, 207, 105);
+  transition: 0.25s all ease-in;
+  text-align: center;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.closet-senssion {
+  cursor: pointer;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  border: 2px solid rgba(1,125,63,1);
 }
 
 .container-menu{
@@ -26,7 +55,7 @@ header{
 }
 
 header .logo img{
-  height: 70px;
+  height: 50px;
   width: auto;
   transition: all 0.3s;
   cursor: pointer;
@@ -46,7 +75,7 @@ header .logo img:hover{
   display: inline-block;
   padding: 20px;
   transition: all 0.3s;
-  border-right: 1px solid #eda407;
+  border-right: 1px solid rgb(241, 207, 105);
 }
 
 .nav-links li:hover{
@@ -54,7 +83,7 @@ header .logo img:hover{
   cursor: pointer;
   background-color: none;
   border-radius: 5px;
-  background-color: #3c6a36;
+  background-color: rgba(1,125,63,1);
   // background-position: 100% 0;
   // transition: all .3s;
 }
@@ -73,15 +102,14 @@ header .logo img:hover{
 }
 
 .menu:hover a i{
-  color: #3c6a36;
+  color: rgba(1,125,63,1);
 }
 
 button{
   margin-right: 37px;
-  background-color: #3c6a36;
+  background-color: rgba(1,125,63,1);
   border: solid 1px black;
   border-radius: 5px;
-  padding: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: Roboto, "Helvetica Neue", sans-serif;
@@ -90,11 +118,11 @@ button{
 
 button:hover{
   transform: scale(1.1);
-  background-color: #eda407;
+  background-color: rgb(241, 207, 105);
 }
 
 button:active{
-  background-color: #589b4f;
+  background-color: rgba(1,125,63,1);
 }
 
 @media (max-width: 1000px) {
@@ -129,11 +157,11 @@ button:active{
   }
 
   .menu:hover a mat-icon{
-    color: #3c6a36;
+    color: rgba(1,125,63,1);
   }
 
   .onMenu a mat-icon{
-    color: #eda407;
+    color: rgb(241, 207, 105);
   }
 
   nav {
@@ -148,7 +176,7 @@ button:active{
     display: block;
     padding: 10px;
     border-right: none;
-    border-bottom: 1px solid #eda407;
+    border-bottom: 1px solid rgb(241, 207, 105);
   }
 
   .offDropdown .nav-links{

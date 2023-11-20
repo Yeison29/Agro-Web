@@ -223,11 +223,13 @@ button.ghost {
 	transform: translateX(20%);
 }
 
-.social-container {
+.back-container {
 	margin: 20px 0;
+	z-index: 50;
+	position: absolute;
 }
 
-.social-container a {
+.back-container a {
 	border: 1px solid black;
 	border-radius: 50%;
 	display: inline-flex;
@@ -238,12 +240,13 @@ button.ghost {
 	width: 40px;
 }
 
-.social {
+.back {
     transition: 0.25s all ease-in;
+	cursor: pointer;
 }
 
-.social:hover {
-    background-color: rgb(241, 207, 105);
+.back:hover {
+    background-color: rgba(1,125,63,1);
     transform: scale(1.05);
 }
 

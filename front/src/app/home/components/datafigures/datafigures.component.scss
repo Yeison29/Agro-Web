@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;800;900&display=swap');
+
+
+
+/* ============================================================== 
+     # Fun Factor 
+=================================================================== */
+
+.fun-factor-area {
+    position: relative;
+  }
+  
+  .fun-factor-area .illustration {
+    position: absolute;
+    left: -100px;
+    display: none;
+  }
+  
+  @media (min-width: 1400px) {
+    .fun-factor-area .illustration {
+      display: inline-block;
+    }
+  }
+  
+  .fun-factor-area .fun-fact-items {
+    position: relative;
+  }
+  
+  .fun-factor-area .fun-fact-items .text-invisible {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 160px;
+    font-weight: 900;
+    z-index: -1;
+    opacity: 0.02;
+    letter-spacing: -6px;
+  }
+  
+  .fun-factor-area .fun-fact-items .timer {
+    display: block;
+    font-size: 40px;
+    font-weight: 800;
+    color: #232323;
+    line-height: 1.2;
+    background: linear-gradient(97deg, rgba(217,166,13,1) 36%, rgba(241,207,105,1) 65%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .fun-factor-area .fun-fact-items .medium {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+    margin-top: 5px;
+    display: block;
+    color: #232323;
+  }
+
+  .row {
+    margin-top: 7%;
+    margin-bottom: 7%;
+  }

@@ -19,9 +19,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import moment from 'moment';
 
-import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faLeftLong } from '@fortawesome/free-solid-svg-icons';
 import { HomeService } from '../../home.service';
 import { Router } from '@angular/router';
 
@@ -47,9 +45,7 @@ export class LoginComponent implements OnInit {
 
   hide = true;
   right_panel: string = '';
-  icon_git_hub = faCodeBranch;
-  icon_facebook = faThumbsUp;
-  icon_instagram = faHeart;
+  icon_back = faLeftLong;
   type_documents: any = [];
   genders: any = [];
   departments: any = [];
@@ -91,6 +87,10 @@ export class LoginComponent implements OnInit {
     this.getAllTypeDocuments();
     this.getAllGenders();
     this.getAllDepartments(1);
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate(["/"+route]);
   }
 
   getAllTypeDocuments() {
@@ -184,6 +184,7 @@ export class LoginComponent implements OnInit {
       this.serHome.getToken(this.form_login.value).subscribe(
         (res: any) => {
           localStorage.setItem('access_token', res.access_token);
+          localStorage.setItem('session', JSON.stringify(this.session(res)))
           this.sucessAlert('Inicio Sesión exitoso');
           this.form_login.reset();
           this.router.navigate(['/home']);
@@ -192,6 +193,14 @@ export class LoginComponent implements OnInit {
           this.errorAlert(err.error.detail);
         }
       );
+    }
+  }
+
+  session(data: any){
+    return {
+      name_user: data.name_user,
+      email_user: data.email_user,
+      id_user: data.user_id
     }
   }
 

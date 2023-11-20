@@ -1,4 +1,7 @@
 <div class="container-main">
+  <div class="back-container">
+    <a (click)="navigateTo('home')" class="back"><fa-icon [icon]="icon_back"></fa-icon></a>
+  </div>
   <div class="container" id="container" [class]="right_panel">
     <div class="form-container sign-up-container margin-botton">
       <form class="form" [formGroup]="form">
@@ -158,11 +161,6 @@
       </div>
     </div>
     <div class="form-container sign-in-container">
-      <div class="social-container">
-        <a href="#" class="social"><fa-icon [icon]="icon_git_hub"></fa-icon></a>
-        <a href="#" class="social"><fa-icon [icon]="icon_facebook"></fa-icon></a>
-        <a href="#" class="social"><fa-icon [icon]="icon_instagram"></fa-icon></a>
-      </div>
       <form class="form form-sign-in" [formGroup]="form_login" (submit)="submit()">
         <h1>Iniciar sesión</h1>
         <span>Ingrese sus crendenciales</span>
@@ -196,6 +194,9 @@
     </div>
     <div class="overlay-container">
       <div class="overlay">
+        <div class="back-container">
+          <a (click)="navigateTo('home')" class="back"><fa-icon [icon]="icon_back"></fa-icon></a>
+        </div>
         <div class="overlay-panel overlay-left">
           <h1>¡Bienvenido de nuevo!</h1>
           <p>To keep connected with us please login with your personal info</p>
