@@ -82,4 +82,16 @@ export class HomeService {
     );
   }
 
+  getGenders(): Observable<any>{
+    return this.http.get(
+      `${this.baseUrl}/statistics-genres`
+    );
+  }
+
+  getRangeAges(): Observable<any>{
+    return this.http.get(
+      `${this.baseUrl}/age-range`
+    );
+  }
+
 }

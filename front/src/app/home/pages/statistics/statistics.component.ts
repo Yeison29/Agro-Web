@@ -8,11 +8,13 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { HomeService } from '../../home.service';
 import { MunicipalityComponent } from './municipality/municipality.component';
 import { HarvestComponent } from './harvest/harvest.component';
+import { GenderComponent } from './gender/gender.component';
+import { AgeComponent } from './age/age.component';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MunicipalityComponent, HarvestComponent],
+  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MunicipalityComponent, HarvestComponent, GenderComponent, AgeComponent],
   templateUrl: './statistics.component.html',
   styleUrl: './statistics.component.scss'
 })
@@ -149,7 +151,6 @@ export class StatisticsComponent implements OnInit {
   getAllHarvest(){
     this.serHome.getAllHarvest().subscribe((res: any) => {
       this.harvests= res;
-      console.log(res);
     });
   }
 

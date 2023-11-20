@@ -24,7 +24,6 @@ export class MunicipalityComponent implements OnInit {
   getAllHarvestMunicipality(){
     this.serHome.getAllHarvestMunicipality().subscribe((res: any) => {
       this.municipalities= res;
-      console.log(res);
       this.chart()
     });
   }
@@ -36,7 +35,7 @@ export class MunicipalityComponent implements OnInit {
       data: {
         labels: this.getMunicipalities(),
         datasets: [{
-          label: 'Cultivo mas sembrada en los municipios',
+          label: 'Hectareas',
           data: this.getData(),
           backgroundColor: 'rgba(1,125,63,1)',
           borderColor: 'rgba(1,125,63,1)',
@@ -44,6 +43,16 @@ export class MunicipalityComponent implements OnInit {
         }]
       },
       options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Cultivos más sembrados por municipios',
+          },
+        },
         scales: {
           y: {
             beginAtZero: true
