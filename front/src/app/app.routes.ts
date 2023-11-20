@@ -4,6 +4,8 @@ import { ServicesComponent } from './home/pages/services/services.component';
 import {  StatisticsComponent } from "./home/pages/statistics/statistics.component";
 import { LoginComponent } from './home/components/login/login.component';
 import { ActivateComponent } from './home/components/activate/activate.component';
+import { CropsComponent } from './home/pages/crops/crops.component';
+import {FarmersComponent} from "./home/pages/farmers/farmers.component";
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'/home'},
@@ -11,5 +13,7 @@ export const routes: Routes = [
     { path: 'services', component: ServicesComponent },
     { path: 'statistics', component: StatisticsComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'activate/:code', component: ActivateComponent }
+    { path: 'activate/:code', component: ActivateComponent },
+    { path: 'crops', component: CropsComponent },
+    { path: 'farmers', component: FarmersComponent }
 ];

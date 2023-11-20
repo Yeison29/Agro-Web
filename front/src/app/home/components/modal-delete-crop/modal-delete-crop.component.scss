@@ -1,0 +1,69 @@
+h1 {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form-register-crops{
+    display: grid;
+    justify-items: stretch;
+}
+
+.container{
+    height: 35rem;
+    width: 25rem;
+}
+
+.form{
+    position: relative;
+    top: 2rem;
+}
+
+h1 {
+    position: relative;
+    bottom: 1rem;
+}
+
+.btn-gradient,
+.btn-gradient:focus {
+    position: relative;
+    z-index: 1;
+    color: #232323 !important;
+    padding: 10px 40px !important;
+}
+
+.btn-gradient::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to right, #fcc51b, #f1cf69);
+    transition: all 0.35s ease-in-out;
+    z-index: -1;
+    box-shadow: 0 0 10px rgba(255, 136, 0, 0.5), inset 0 0 1px 1px #f6c738;
+}
+
+.btn-gradient.green {
+    color: #ffffff !important;
+}
+
+.btn-gradient.green::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(97deg, rgba(1, 125, 63, 1) 36%, rgba(252, 197, 27, 1) 100%);
+    transition: all 0.35s ease-in-out;
+    z-index: -1;
+    box-shadow: inherit;
+    cursor: pointer;
+}
+
+a {
+    top: 2.5rem;
+    left: 6.5rem;
+}
