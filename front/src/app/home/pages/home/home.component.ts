@@ -14,13 +14,13 @@ import {FooterComponent} from "../../../public/footer/footer.component";
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { SpecialtyComponent } from '../../components/specialty/specialty.component';
 import { DatafiguresComponent } from '../../components/datafigures/datafigures.component';
-
+import {FarmersComponent} from "../farmers/farmers.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent, 
-    NewsComponent, MatIconModule, TestimonialsComponent , SpecialtyComponent, DatafiguresComponent,FooterComponent],
+  imports: [CommonModule, LoginComponent, CarouselComponent, HeaderComponent, IntroductionComponent,
+    NewsComponent, MatIconModule, TestimonialsComponent , SpecialtyComponent, DatafiguresComponent,FooterComponent, FarmersComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

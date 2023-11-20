@@ -49,6 +49,9 @@ export class HeaderComponent {
     return this.route.snapshot.routeConfig?.path === 'about';
   }
 
+  esRutaFarmers(){
+    return this.route.snapshot.routeConfig?.path === 'farmers';
+  }
 
   navigateTo(route: string): void {
     this.router.navigate(["/"+route]);

@@ -11,7 +11,7 @@ import { Token } from '@angular/compiler';
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
 
-tokenLessRoutes: string[] = ['/create-user', '/get-all-type-documents', '/get-all-gender', '/get-all-contries', '/get-all-departments', '/get-all-municipalities'];
+tokenLessRoutes: string[] = ['/token' , '/create-user', '/get-all-type-documents', '/get-all-gender', '/get-all-contries', '/get-all-departments', '/get-all-municipalities'];
 
   // constructor(private load: LoaderService) {}
 
@@ -22,7 +22,6 @@ tokenLessRoutes: string[] = ['/create-user', '/get-all-type-documents', '/get-al
     console.log(request.url.split('?')[0])
 
     if (this.tokenLessRoutes.some(ruta => ruta === request.url.split('?')[0])) {
-      console.log(request.url)
       return next.handle(request);
     }
 

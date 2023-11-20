@@ -1,18 +1,70 @@
 <app-header></app-header>
-<div class="container">
-  <form [formGroup]="form" class="selectCultivo">
-    <mat-form-field>
-      <mat-label>Cultivo</mat-label>
-      <mat-select formControlName="harvest" (selectionChange)="onChange($event.value)">
-          @for (type of harvests; track type) {
-              <mat-option [value]="type.id_harvest">{{type.code_harvest}} - {{type.name_harvest}}</mat-option>
-            }
-      </mat-select>
-      <mat-hint align="end">Seleccione un <strong>Cultivo</strong></mat-hint>
-      @if (form.get('harvest')?.errors?.['required']) {
-          <mat-error>Cultivo <strong>requerido</strong></mat-error>
-        }
-    </mat-form-field>
-  </form>
-  <canvas id="miGrafica"></canvas>
+<div class="pagetitle">
+  <h1>Precio de los cultivos en las plazas mayoristas</h1>
 </div>
+
+<section class="section">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="datatable-top">
+        <div class="datatable-dropdown">
+          <label>
+            <select class="datatable-selector" [(ngModel)]="entriesPerPage" name="entriesPerPage" (ngModelChange)="onEntriesPerPageChange()">
+              <option value="5">5</option>
+              <option value="10" selected>10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+            entradas por página
+          </label>
+        </div>
+        <div class="datatable-search">
+          <input type="text" [(ngModel)]="searchText" placeholder="Buscar en la tabla" />
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+
+          <table class="table datatable">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Plaza</th>
+              <th scope="col">Articulo o producto</th>
+              <th scope="col">Precio minimo</th>
+              <th scope="col">Precio maximo</th>
+              <th scope="col">Precio promedio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let row of displayedData">
+              <td>{{ row.numero }}</td>
+              <td>{{ row.fecha }}</td>
+              <td>{{ row.fuente }}</td>
+              <td>{{ row.articulo }}</td>
+              <td>${{ row.minimo }}</td>
+              <td>${{ row.maximo }}</td>
+              <td>${{ row.promedio }}</td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="datatable-bottom">
+    <div class="datatable-info">
+      Mostrando de {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ tableData.length }} entradas
+    </div>
+    <nav class="datatable-pagination">
+      <ul class="datatable-pagination-list"></ul>
+    </nav>
+  </div>
+</section>
+<app-footer></app-footer>
