@@ -25,8 +25,8 @@ export class TableCropsComponent implements OnInit {
   currentPage: number = 1; // Variable para almacenar la página actual
 
   tableData = [
-    {hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 1},
-    {hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 2},
+    {id: 1 ,hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 1},
+    {id: 2, hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 2},
   ];
 
   constructor(private fb: FormBuilder, public dialog: MatDialog) {}
@@ -80,4 +80,19 @@ export class TableCropsComponent implements OnInit {
             }
         });
   }
+
+  totalPages(): number[] {
+    return Array.from({length: Math.ceil(this.tableData.length / this.entriesPerPage)}, (_, i) => i + 1);
+  }
+
+  goToPage(page: number) {
+    this.currentPage = page;
+  }
+
+  searchById(id: any, index: any){
+    if(index===1){
+      this.openModalUpdate();
+    }
+  }
+
 }

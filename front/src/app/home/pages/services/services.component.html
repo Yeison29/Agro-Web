@@ -1,6 +1,7 @@
 <app-header></app-header>
+
 <div class="pagetitle">
-  <h1>Precio de los cultivos en las plazas mayoristas</h1>
+  <h1>Precio de los <strong style="color: #3c6a36">cultivos</strong>  en las plazas mayoristas</h1>
 </div>
 
 <section class="section">
@@ -9,19 +10,20 @@
 
       <div class="datatable-top">
         <div class="datatable-dropdown">
-          <label>
+          <label style="color: #3c6a36;">
             <select class="datatable-selector" [(ngModel)]="entriesPerPage" name="entriesPerPage" (ngModelChange)="onEntriesPerPageChange()">
-              <option value="5">5</option>
-              <option value="10" selected>10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25">25</option>
+              <option style="color: #3c6a36;" value="5">5</option>
+              <option style="color: #3c6a36;" value="10" selected>10</option>
+              <option style="color: #3c6a36;" value="15">15</option>
+              <option style="color: #3c6a36;" value="20">20</option>
+              <option style="color: #3c6a36;" value="25">25</option>
             </select>
             entradas por página
           </label>
         </div>
         <div class="datatable-search">
-          <input type="text" [(ngModel)]="searchText" placeholder="Buscar en la tabla" />
+          <input type="text" [(ngModel)]="searchText" style="font-style: italic;" placeholder="Buscar en la tabla"/>
+          <img class="icon-search" src="assets/magnifying-glass-solid.svg" alt="">
         </div>
       </div>
 
@@ -30,25 +32,25 @@
 
           <table class="table datatable">
             <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Fecha</th>
-              <th scope="col">Plaza</th>
-              <th scope="col">Articulo o producto</th>
-              <th scope="col">Precio minimo</th>
-              <th scope="col">Precio maximo</th>
-              <th scope="col">Precio promedio</th>
+            <tr >
+              <th class="header-table" (click)="onSort('numero')">Número</th>
+              <th class="header-table" (click)="onSort('fecha')">Fecha</th>
+              <th class="header-table" (click)="onSort('fuente')">Plaza</th>
+              <th class="header-table" (click)="onSort('articulo')">Artículo o producto</th>
+              <th class="header-table" (click)="onSort('minimo')">Precio mínimo</th>
+              <th class="header-table" (click)="onSort('maximo')">Precio máximo</th>
+              <th class="header-table" (click)="onSort('promedio')">Precio promedio</th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let row of displayedData">
-              <td>{{ row.numero }}</td>
-              <td>{{ row.fecha }}</td>
-              <td>{{ row.fuente }}</td>
-              <td>{{ row.articulo }}</td>
-              <td>${{ row.minimo }}</td>
-              <td>${{ row.maximo }}</td>
-              <td>${{ row.promedio }}</td>
+              <td class="header-body">{{ row.numero }}</td>
+              <td class="header-body">{{ row.fecha }}</td>
+              <td class="header-body">{{ row.fuente }}</td>
+              <td class="header-body">{{ row.articulo }}</td>
+              <td class="header-body">${{ row.minimo }}</td>
+              <td class="header-body">${{ row.maximo }}</td>
+              <td class="header-body">${{ row.promedio }}</td>
             </tr>
             </tbody>
           </table>
@@ -60,11 +62,14 @@
   </div>
   <div class="datatable-bottom">
     <div class="datatable-info">
-      Mostrando de {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ tableData.length }} entradas
+      Mostrando de {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ displayedData.length }} entradas
     </div>
     <nav class="datatable-pagination">
-      <ul class="datatable-pagination-list"></ul>
+      <button class="buttons-page" *ngFor="let page of totalPages()" [class.active]="currentPage === page" (click)="goToPage(page)">
+        {{ page }}
+      </button>
     </nav>
   </div>
 </section>
+
 <app-footer></app-footer>

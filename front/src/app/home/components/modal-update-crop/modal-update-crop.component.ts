@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm, Form, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,7 +15,7 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
   templateUrl: './modal-update-crop.component.html',
   styleUrl: './modal-update-crop.component.scss'
 })
-export class ModalUpdateCropComponent {
+export class ModalUpdateCropComponent implements OnInit {
   harvest : any = [
     {
       id_harvest: 1,
@@ -41,11 +41,29 @@ export class ModalUpdateCropComponent {
     });
   }
 
+  ngOnInit(){
+    this.get_harvest();
+  }
+
   submit(){
     if(!this.form.invalid){
       console.log("Exito");
     }else {
       console.log("Error");
     }
+  }
+
+  get_harvest(){
+    //Hacer la consulta para traer el cultivo relacionado a esa cosecha.
+
+    //Crear logica para obtener los datos de la cosecha
+
+    this.form.patchValue({
+      hectares: 0.4,
+      seed_time: '07/05/2022',
+      approximate_durability_date: '07/05/2022',
+      approximate_weeks_crop_durability: 4,
+      harvest_id: 2
+    });
   }
 }
