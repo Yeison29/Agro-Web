@@ -10,11 +10,12 @@ import { MunicipalityComponent } from './municipality/municipality.component';
 import { HarvestComponent } from './harvest/harvest.component';
 import { GenderComponent } from './gender/gender.component';
 import { AgeComponent } from './age/age.component';
+import { FooterComponent } from '../../../public/footer/footer.component';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MunicipalityComponent, HarvestComponent, GenderComponent, AgeComponent],
+  imports: [CommonModule, HeaderComponent, MatFormFieldModule, MatSelectModule, ReactiveFormsModule, MunicipalityComponent, HarvestComponent, GenderComponent, AgeComponent, FooterComponent],
   templateUrl: './statistics.component.html',
   styleUrl: './statistics.component.scss'
 })
