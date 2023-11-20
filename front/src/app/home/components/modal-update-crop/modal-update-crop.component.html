@@ -1,0 +1,72 @@
+<div class="container">
+    <form class="form" [formGroup]="form">
+        <h1>Modificar Cosecha</h1>
+        <div class="form-register-crops">
+
+            <mat-form-field class="init">
+                <mat-label>Hect&aacute;reas</mat-label>
+                <input matInput #hectares maxlength="5" placeholder="Ej. 0.4" formControlName="hectares" >
+                <mat-hint align="start">Max<strong> 5 </strong>caracteres </mat-hint>
+                <mat-hint align="end">{{hectares.value.length}} / 4</mat-hint>
+                @if (form.get('hectares')?.errors?.['required']) {
+                <mat-error>Hectáreas <strong>requeridas</strong></mat-error>
+                }
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Fecha de siembra</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="seed_time" readonly>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker #picker></mat-datepicker>
+                @if (form.get('seed_time')?.errors?.['required']) {
+                <mat-error>Fecha de siembra <strong>requerida</strong></mat-error>
+                }
+            </mat-form-field>
+
+
+            <mat-form-field>
+                <mat-label>Duración de siembra</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="approximate_durability_date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+                @if (form.get('approximate_durability_date')?.errors?.['required']) {
+                <mat-error>Fecha aproximada <strong>requerida</strong></mat-error>
+                }
+            </mat-form-field>
+
+
+            <mat-form-field class="doce">
+                <mat-label>Semanas estimadas de cosecha</mat-label>
+                <input matInput #approximate_weeks_crop_durability maxlength="4" placeholder="Ej. 2"
+                    formControlName="approximate_weeks_crop_durability">
+                <mat-hint align="start">Max<strong> 4 </strong>caracteres </mat-hint>
+                <mat-hint align="end">{{hectares.value.length}} / 4</mat-hint>
+                @if (form.get('approximate_weeks_crop_durability')?.errors?.['required']) {
+                <mat-error>Semanas <strong>requeridas</strong></mat-error>
+                }
+            </mat-form-field>
+
+            <mat-form-field class="doce">
+                <mat-label>Cultivo</mat-label>
+                <mat-select formControlName="harvest_id">
+                    @for (harve of harvest; track harve) {
+                    <mat-option [value]="harve.id_harvest">{{harve.code}} - {{harve.name}}</mat-option>
+                    }
+                </mat-select>
+                <mat-hint align="end">Seleccione un <strong>cultivo</strong></mat-hint>
+                @if (form.get('harvest_id')?.errors?.['required']) {
+                <mat-error>Cultivo <strong>requerido</strong></mat-error>
+                }
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="container-boton">
+        <div class="row boton">
+            <div class="col-4">
+                <a class="btn circle btn-gradient green effect btn-md" (click)="submit()">Actualizar</a>
+            </div>
+        </div>
+    </div>
+</div>

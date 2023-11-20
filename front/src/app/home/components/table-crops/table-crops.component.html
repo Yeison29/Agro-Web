@@ -1,0 +1,72 @@
+<div class="pagetitle">
+    <h1><strong style="color: #3c6a36">Cosechas </strong> <strong style="color: #e2aa53">Registradas</strong></h1>
+  </div>
+  
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+  
+        <div class="datatable-top">
+          <div class="datatable-dropdown">
+            <label style="color: #3c6a36;">
+              <select class="datatable-selector" [(ngModel)]="entriesPerPage" name="entriesPerPage" (ngModelChange)="onEntriesPerPageChange()">
+                <option style="color: #3c6a36;" value="5">5</option>
+                <option style="color: #3c6a36;" value="10" selected>10</option>
+                <option style="color: #3c6a36;" value="15">15</option>
+                <option style="color: #3c6a36;" value="20">20</option>
+                <option style="color: #3c6a36;" value="25">25</option>
+              </select>
+              entradas por página
+            </label>
+          </div>
+          <div class="datatable-search">
+            <input type="text" [(ngModel)]="searchText" style="font-style: italic;" placeholder="Buscar en la tabla"/>
+            <img class="icon-search" src="assets/magnifying-glass-solid.svg" alt="">
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+  
+            <table class="table datatable">
+              <thead>
+              <tr>
+                <th class="header-table">#</th>
+                <th class="header-table">Hectáreas</th>
+                <th class="header-table">Fecha de siembra</th>
+                <th class="header-table">Duración de siembra</th>
+                <th class="header-table">Semanas de cosecha</th>
+                <th class="header-table">Cultivo</th>
+                <th class="header-table">Editar</th>
+                <th class="header-table">Eliminar</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let row of displayedData; let i = index">
+                <td class="header-body"> {{ obtenerContador(i) }} </td>
+                <td class="header-body"> {{row.hectares}} </td>
+                <td class="header-body"> {{row.seed_time}} </td>
+                <td class="header-body"> {{row.approximate_durability_date}} </td>
+                <td class="header-body"> {{row.approximate_weeks_crop_durability}} </td>
+                <td class="header-body"> {{obtenerCultivo(row.harvest_id)}} </td>
+                <td class="header-body"> <fa-icon [icon]="fapentosquare" style="cursor: pointer;" (click)="searchById(row.id, 1)"></fa-icon> </td>
+                <td class="header-body"> <fa-icon [icon]="fatrash" style="cursor: pointer;" (click)="searchById(row.id, 2)"></fa-icon> </td>
+              </tr>
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <div class="datatable-bottom">
+      <div class="datatable-info">
+        Mostrando de {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ tableData.length }} entradas
+      </div>
+      <nav class="datatable-pagination">
+        <button class="buttons-page" *ngFor="let page of totalPages()" [class.active]="currentPage === page" (click)="goToPage(page)">
+          {{ page }}
+        </button>
+      </nav>
+    </div>
+  </section>

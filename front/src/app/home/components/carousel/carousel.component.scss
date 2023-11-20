@@ -40,16 +40,19 @@
                 font-weight: 900;
                 text-transform:  uppercase;
                 z-index: 1;
-                font-size: 1.3em;
+                font-size: 3.5em;
                 span {
                     color: #eda407;
                 }
+                
             }
             p{
                 z-index: 1;
                 color: white;
                 font-weight: 500;
-                font-size: 1em;
+                font-size: 1.2em;
+                width: 700px;
+                transform: translateY(20px);
             }
         }
     }
