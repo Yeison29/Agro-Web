@@ -49,7 +49,7 @@
                 <td class="header-body"> {{row.approximate_weeks_crop_durability}} </td>
                 <td class="header-body"> {{obtenerCultivo(row.harvest_id)}} </td>
                 <td class="header-body"> <fa-icon [icon]="fapentosquare" style="cursor: pointer;" (click)="searchById(row.id, 1)"></fa-icon> </td>
-                <td class="header-body"> <fa-icon [icon]="fatrash" style="cursor: pointer;"></fa-icon> </td>
+                <td class="header-body"> <fa-icon [icon]="fatrash" style="cursor: pointer;" (click)="searchById(row.id, 2)"></fa-icon> </td>
               </tr>
               </tbody>
             </table>

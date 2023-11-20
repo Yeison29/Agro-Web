@@ -7,6 +7,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ModalUpdateCropComponent } from '../modal-update-crop/modal-update-crop.component';
+import { ModalDeleteCropComponent } from '../modal-delete-crop/modal-delete-crop.component';
 
 @Component({
   selector: 'app-table-crops',
@@ -76,7 +77,7 @@ export class TableCropsComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalUpdateCropComponent);
         dialogRef.afterClosed().subscribe(result => {
             if(result){
-              console.log("Modal");
+              console.log("ModalUpdate");
             }
         });
   }
@@ -92,7 +93,18 @@ export class TableCropsComponent implements OnInit {
   searchById(id: any, index: any){
     if(index===1){
       this.openModalUpdate();
+    }else if(index===2){
+      this.openModalDelete();
     }
+  }
+
+  openModalDelete(){
+    const dialogRef = this.dialog.open(ModalDeleteCropComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        console.log("modalDelete");
+      }
+    })
   }
 
 }
