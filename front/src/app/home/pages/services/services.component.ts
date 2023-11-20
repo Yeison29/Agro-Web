@@ -45,7 +45,52 @@ export class ServicesComponent implements OnInit {
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 3,
+      fecha: '20/11/2023',
+      fuente: 'Corabastos',
+      articulo: 'Ahuyama',
+      promedio: 2000,
+      minimo: 1500,
+      maximo: 2500
+    },
+    {
+      numero: 4,
+      fecha: '20/11/2023',
+      fuente: 'Corabastos',
+      articulo: 'Cebolla',
+      promedio: 2000,
+      minimo: 1500,
+      maximo: 2500
+    },
+    {
+      numero: 5,
+      fecha: '20/11/2023',
+      fuente: 'Corabastos',
+      articulo: 'Cebollin',
+      promedio: 2000,
+      minimo: 1500,
+      maximo: 2500
+    },
+    {
+      numero: 6,
+      fecha: '20/11/2023',
+      fuente: 'Corabastos',
+      articulo: 'Cilantro',
+      promedio: 2000,
+      minimo: 1500,
+      maximo: 2500
+    },
+    {
+      numero: 7,
+      fecha: '20/11/2023',
+      fuente: 'Corabastos',
+      articulo: 'Papa',
+      promedio: 2000,
+      minimo: 1500,
+      maximo: 2500
+    },
+    {
+      numero: 8,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
       articulo: 'Platano',
@@ -54,100 +99,64 @@ export class ServicesComponent implements OnInit {
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 9,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Arveja',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 10,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Frijol',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 11,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Lenteja',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 12,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Pepino',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 13,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Yuca',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 14,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Maiz',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
     },
     {
-      numero: 2,
+      numero: 15,
       fecha: '20/11/2023',
       fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
+      articulo: 'Pimenton',
       promedio: 2000,
       minimo: 1500,
       maximo: 2500
@@ -157,8 +166,7 @@ export class ServicesComponent implements OnInit {
   constructor(private fb: FormBuilder) {
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  ngOnInit(){
   }
 
   onSort(column: string) {
@@ -193,7 +201,6 @@ export class ServicesComponent implements OnInit {
       row.articulo.toLowerCase().includes(this.searchText.toLowerCase()) ||
       row.fuente.toLowerCase().includes(this.searchText.toLowerCase())
     );
-
     return this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn])
       .slice(startIndex, endIndex);
   }
@@ -225,20 +232,20 @@ export class ServicesComponent implements OnInit {
 
   onEntriesPerPageChange() {
     this.currentPage = 1;
-    this.applyFilterAndPagination();
+    // this.applyFilterAndPagination();
   }
 
-  applyFilter() {
-    this.applyFilterAndPagination();
-  }
+  // applyFilter() {
+  //   this.applyFilterAndPagination();
+  // }
 
-  applyFilterAndPagination() {
-    const filteredData = this.filterTableData();
-    const sortedData = this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn]);
-
-    const startIndex = (this.currentPage - 1) * this.entriesPerPage;
-    const endIndex = startIndex + this.entriesPerPage;
-
-    this.tableData = sortedData.slice(startIndex, endIndex);
-  }
+  // applyFilterAndPagination() {
+  //   const filteredData = this.filterTableData();
+  //   const sortedData = this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn]);
+  //
+  //   const startIndex = (this.currentPage - 1) * this.entriesPerPage;
+  //   const endIndex = startIndex + this.entriesPerPage;
+  //
+  //   this.tableData = sortedData.slice(startIndex, endIndex);
+  // }
 }

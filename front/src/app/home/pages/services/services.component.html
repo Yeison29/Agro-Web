@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="pagetitle">
-  <h1>Precio de los <strong style="color: #3c6a36">cultivos</strong>  en las plazas mayoristas</h1>
+  <h1>Precio de los <strong style="color: #3c6a36">cultivos</strong>  en las <strong style="color: #e2aa53">plazas</strong> mayoristas</h1>
 </div>
 
 <section class="section">
@@ -22,7 +22,8 @@
           </label>
         </div>
         <div class="datatable-search">
-          <input type="text" [(ngModel)]="searchText" style="font-style: italic;" placeholder="Buscar en la tabla" (ngModelChange)="applyFilterAndPagination()" />
+<!--          (ngModelChange)="applyFilterAndPagination()"-->
+          <input type="text" [(ngModel)]="searchText" style="font-style: italic;" placeholder="Buscar en la tabla"  />
           <img class="icon-search" src="assets/magnifying-glass-solid.svg" alt="">
         </div>
       </div>
