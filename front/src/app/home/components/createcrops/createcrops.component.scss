@@ -8,12 +8,12 @@ h1 {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 2rem;
+    transform: translateY(30px);
 }
 
 .container {
     position: relative;
-    top: 3rem;
+    margin-top: -10px;
 }
 
 .init, 
@@ -50,23 +50,19 @@ h1 {
     justify-content: center;
 
     .col-4 {
-        position: relative;
+        display: flex;
         justify-content: center;
     }
 
 }
 
-a {
-    position: relative;
-    top: 0.5rem;
-}
 
 .btn-gradient,
 .btn-gradient:focus {
     position: relative;
     z-index: 1;
     color: #232323 !important;
-    padding: 18px 40px !important;
+    padding: 10px 40px !important;
 }
 
 .btn-gradient::after {
@@ -100,6 +96,3 @@ a {
     cursor: pointer;
 }
 
-.btn-md {
-    padding: 15px 40px;
-}

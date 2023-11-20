@@ -1,0 +1,70 @@
+<div class="pagetitle">
+    <h1>Cosechas Registradas</h1>
+  </div>
+  
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+  
+        <div class="datatable-top">
+          <div class="datatable-dropdown">
+            <label>
+              <select class="datatable-selector" [(ngModel)]="entriesPerPage" name="entriesPerPage" (ngModelChange)="onEntriesPerPageChange()">
+                <option value="5">5</option>
+                <option value="10" selected>10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+              </select>
+              entradas por página
+            </label>
+          </div>
+          <div class="datatable-search">
+            <input type="text" [(ngModel)]="searchText" placeholder="Buscar en la tabla" />
+          </div>
+        </div>
+  
+        <div class="card">
+          <div class="card-body">
+  
+            <table class="table datatable">
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Hectáreas</th>
+                <th scope="col">Fecha de siembra</th>
+                <th scope="col">Duración de siembra</th>
+                <th scope="col">Semanas de cosecha</th>
+                <th scope="col">Cultivo</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let row of displayedData; let i = index">
+                <td> {{ obtenerContador(i) }} </td>
+                <td> {{row.hectares}} </td>
+                <td> {{row.seed_time}} </td>
+                <td> {{row.approximate_durability_date}} </td>
+                <td> {{row.approximate_weeks_crop_durability}} </td>
+                <td> {{obtenerCultivo(row.harvest_id)}} </td>
+                <td> <fa-icon [icon]="fapentosquare" style="cursor: pointer;" (click)="openModalUpdate()"></fa-icon> </td>
+                <td> <fa-icon [icon]="fatrash" style="cursor: pointer;"></fa-icon> </td>
+              </tr>
+              </tbody>
+            </table>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <div class="datatable-bottom">
+      <div class="datatable-info">
+        Mostrando de {{ getStartIndex() + 1 }} a {{ getEndIndex() }} de {{ tableData.length }} entradas
+      </div>
+      <nav class="datatable-pagination">
+        <ul class="datatable-pagination-list"></ul>
+      </nav>
+    </div>
+  </section>

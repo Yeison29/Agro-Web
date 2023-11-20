@@ -50,14 +50,4 @@ export class CreatecropsComponent {
       console.log("Error");
     }
   }
-
-  openModalUpdate(){
-    const dialogRef = this.dialog.open(ModalUpdateCropComponent);
-        dialogRef.afterClosed().subscribe(result => {
-            if(result){
-              console.log("Modal");
-            }
-        });
-  }
-
 }
