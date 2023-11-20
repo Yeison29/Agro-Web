@@ -14,7 +14,7 @@ import {FooterComponent} from "../../../public/footer/footer.component";
 import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { SpecialtyComponent } from '../../components/specialty/specialty.component';
 import { DatafiguresComponent } from '../../components/datafigures/datafigures.component';
-import {FarmersComponent} from "../../../public/farmers/farmers.component";
+import {FarmersComponent} from "../farmers/farmers.component";
 
 @Component({
   selector: 'app-home',
