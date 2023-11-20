@@ -1,13 +1,77 @@
-
-#miGrafica {
-    min-height: 500px;
-    max-width: 1000px;
+.datatable-dropdown {
+  margin-left: 85%;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  padding-bottom: 5px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.datatable-search {
+  margin-left: 84%;
+  display: flex;
+  gap: 5px;
 }
 
+.datatable-bottom {
+  margin-left: 70%;
+  display: flex;
+  gap: 15px;
+  position: relative;
+  margin-top: -20px;
+}
+
+.card{
+  padding-top: 0px;
+}
+
+.datatable-top{
+  padding-bottom: 15px;
+}
+
+.datatable-info{
+  color: #3c6a36;
+  font-style: italic;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.buttons-page{
+  text-decoration: none;
+  border: none;
+  color: #e2aa53;
+  font-weight: bold;
+  background: none; /* Elimina el fondo */
+  border: none; /* Elimina el contorno */
+  cursor: pointer; /* Agrega un cursor de puntero al pasar el mouse */
+  margin: 0; /* Elimina el margen para evitar espacio adicional entre los botones */
+  padding: 0; /* Elimina el relleno para ajustar el tamaño del botón */
+  margin-left: 8px;
+}
+
+.pagetitle{
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-left: 5px;
+}
+
+.section{
+  padding-bottom: 15px;
+}
+
+.icon-search{
+  height: 30px;
+}
+
+.header-table{
+  background-color: #3c6a36;
+  color: white;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.header-body{
+  border: 1px solid #e2aa53;
+  text-align: center;
+}
+
+.card-body{
+  padding: 5px;
+}
