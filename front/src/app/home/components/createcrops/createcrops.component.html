@@ -64,7 +64,7 @@
                         <mat-label>Cultivo</mat-label>
                         <mat-select formControlName="harvest_id">
                             @for (harve of harvest; track harve) {
-                            <mat-option [value]="harve.id_harvest">{{harve.code}} - {{harve.name}}</mat-option>
+                            <mat-option [value]="harve.id_harvest">{{harve.code_harvest}} - {{harve.name_harvest}}</mat-option>
                             }
                         </mat-select>
                         <mat-hint align="end">Seleccione un <strong>cultivo</strong></mat-hint>

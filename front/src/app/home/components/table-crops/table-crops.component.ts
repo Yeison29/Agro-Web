@@ -8,6 +8,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ModalUpdateCropComponent } from '../modal-update-crop/modal-update-crop.component';
 import { ModalDeleteCropComponent } from '../modal-delete-crop/modal-delete-crop.component';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-table-crops',
@@ -25,23 +26,27 @@ export class TableCropsComponent implements OnInit {
   searchText = '';
   currentPage: number = 1; // Variable para almacenar la página actual
 
-  tableData = [
-    {id: 1 ,hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 1},
-    {id: 2, hectares: 0.4, seed_time: '07/05/2022', approximate_durability_date: '29/05/2022', approximate_weeks_crop_durability: 4, harvest_id: 2},
-  ];
+  tableData: any = [];
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private serHome: HomeService) {}
 
   ngOnInit(){
+    this.getAlldata();
+  }
+
+  getAlldata(){
+    this.serHome.getAllCrops().subscribe((res: any) => {
+      this.tableData= res;
+    });
   }
 
   get displayedData() {
     const startIndex = (this.currentPage - 1) * this.entriesPerPage;
     const endIndex = startIndex + this.entriesPerPage;
 
-    const filteredData = this.tableData.filter(row =>
+    const filteredData = this.tableData.filter((row: any) =>
       row.hectares.toString().includes(this.searchText.toLowerCase()) ||
-      row.harvest_id.toString().includes(this.searchText.toLowerCase())
+      row.name_harvest.toLowerCase().includes(this.searchText.toLowerCase())
     );
 
     return filteredData.slice(startIndex, endIndex);
@@ -64,22 +69,16 @@ export class TableCropsComponent implements OnInit {
     return this.contador + index;
   }
 
-  obtenerCultivo(harvest_id: number){
-    if(harvest_id===1){
-      return "PLATANO";
-    }else if(harvest_id===2){
-      return "PAPA";
-    }
-    return
-  }
-
-  openModalUpdate(){
-    const dialogRef = this.dialog.open(ModalUpdateCropComponent);
+  openModalUpdate(id: any){
+    this.serHome.getOneCrops(id).subscribe((res: any) => {
+      this.serHome.setCrop(res);
+      const dialogRef = this.dialog.open(ModalUpdateCropComponent);
         dialogRef.afterClosed().subscribe(result => {
             if(result){
-              console.log("ModalUpdate");
+              this.getAlldata();
             }
         });
+    });
   }
 
   totalPages(): number[] {
@@ -92,13 +91,13 @@ export class TableCropsComponent implements OnInit {
 
   searchById(id: any, index: any){
     if(index===1){
-      this.openModalUpdate();
+      this.openModalUpdate(id);
     }else if(index===2){
-      this.openModalDelete();
+      this.openModalDelete(id);
     }
   }
 
-  openModalDelete(){
+  openModalDelete(id: any){
     const dialogRef = this.dialog.open(ModalDeleteCropComponent);
     dialogRef.afterClosed().subscribe(result => {
       if(result){

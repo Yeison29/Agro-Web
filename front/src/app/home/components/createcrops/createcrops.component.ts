@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, FormControl, FormGroupDirective, NgForm, Form, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -7,7 +7,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import { ModalUpdateCropComponent } from '../modal-update-crop/modal-update-crop.component';
+import { HomeService } from '../../home.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import moment from 'moment';
 
 @Component({
   selector: 'app-createcrops',
@@ -16,38 +18,87 @@ import { ModalUpdateCropComponent } from '../modal-update-crop/modal-update-crop
   templateUrl: './createcrops.component.html',
   styleUrl: './createcrops.component.scss'
 })
-export class CreatecropsComponent {
+export class CreatecropsComponent implements OnInit {
 
-  harvest : any = [
-    {
-      id_harvest: 1,
-      name: 'PAPA',
-      code: '1'
-    },
-    {
-      id_harvest: 2,
-      name: 'Platano',
-      code: '2'
-    }
-];
+  harvest : any = [];
+
+  session_user_id: any;
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog){
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private serHome: HomeService, private snackBar: MatSnackBar){
     this.form = fb.group({
-      hectares: [null,[Validators.required]],
+      hectares: [0.0,[Validators.required]],
       seed_time: ['', [Validators.required]],
       approximate_durability_date: ['', [Validators.required]],
-      approximate_weeks_crop_durability: [null,[Validators.required]],
-      harvest_id: [null, [Validators.required]]
+      approximate_weeks_crop_durability: [0 ,[Validators.required]],
+      harvest_id: [0, [Validators.required]],
+      user_id: [0]
     });
   }
 
-  submit(){
-    if(!this.form.invalid){
-      console.log("Exito");
-    }else {
-      console.log("Error");
+  ngOnInit(): void {
+    this.getHarvest();
+    if(typeof localStorage !== 'undefined'){
+      const local_storange = localStorage.getItem('session')
+      if(local_storange !== null){
+        const local_store = JSON.parse(local_storange)
+        this.session_user_id= local_store.id_user;
+      }
     }
+  }
+
+  getAlldata(){
+    this.serHome.getAllCrops().subscribe((res: any) => {
+    });
+  }
+
+  getHarvest(){
+    this.serHome.getHarvest().subscribe(
+      (res: any) => {
+      this.harvest = res
+      }
+    );
+  }
+
+  setData(){
+    return {
+      hectares: this.form.value.hectares,
+      seed_time:  moment(this.form.value.seed_time).format('YYYY-MM-DD'),
+      approximate_durability_date: moment(this.form.value.approximate_durability_date).format('YYYY-MM-DD'),
+      approximate_weeks_crop_durability: this.form.value.approximate_weeks_crop_durability,
+      harvest_id: this.form.value.harvest_id,
+      user_id: this.session_user_id
+    }
+  }
+
+  submit(){
+    this.serHome.addCrops(this.setData()).subscribe(
+      (res: any) => {
+        this.getAlldata();
+        this.sucessAlert();
+      },
+      (err: any) => {
+        this.errorAlert()
+      },
+    );
+  }
+
+  sucessAlert() {
+    this.snackBar.open('Cosecha Creada', '👍', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['green-snackbar'],
+    });
+  }
+
+  errorAlert() {
+    this.snackBar.open('Error al registrar Cosecha', '👎', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['error-snackbar'],
+    });
   }
 }

@@ -7,6 +7,9 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HomeService } from '../../home.service';
+import moment from 'moment';
 
 @Component({
   selector: 'app-modal-update-crop',
@@ -17,56 +20,75 @@ import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 })
 export class ModalUpdateCropComponent implements OnInit {
 
-  harvest : any = [
-    {
-      id_harvest: 1,
-      name: 'PAPA',
-      code: '1'
-    },
-    {
-      id_harvest: 2,
-      name: 'Platano',
-      code: '2'
-    }
-];
-
+  harvest : any = [];
+  crop : any = [];
   form: FormGroup;
+  update_crop: any = []
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog){
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private serHome: HomeService, private snackBar: MatSnackBar){
     this.form = fb.group({
-      hectares: [null,[Validators.required]],
+      hectares: [0.0 , [Validators.required]],
       seed_time: ['', [Validators.required]],
       approximate_durability_date: ['', [Validators.required]],
-      approximate_weeks_crop_durability: [null,[Validators.required]],
-      harvest_id: [{value: null, disabled: true}, [Validators.required]]
+      approximate_weeks_crop_durability: [0 ,[Validators.required]],
+      harvest_id: [0],
+      user_id: [0]
     });
   }
 
   ngOnInit(){
-    this.get_harvest();
+    this.serHome.elemento$.subscribe(crop => {
+      this.crop= crop;
+      this.form.patchValue({
+        hectares: crop.hectares,
+        seed_time: crop.seed_time,
+        approximate_durability_date: crop.approximate_durability_date,
+        approximate_weeks_crop_durability: crop.approximate_weeks_crop_durability,
+        harvest_id: crop.harvest_id,
+        user_id: crop.user_id
+      });
+    });
   }
 
-  submit(){
-    if(!this.form.invalid){
-      console.log("Exito");
-    }else {
-      console.log("Error");
+  setData(){
+    return{
+      hectares: this.form.value.hectares,
+      seed_time: moment(this.form.value.seed_time).format('YYYY-MM-DD'),
+      approximate_durability_date:  moment(this.form.value.approximate_durability_date).format('YYYY-MM-DD'),
+      approximate_weeks_crop_durability: this.form.value.approximate_weeks_crop_durability,
+      harvest_id: this.form.value.harvest_id,
+      user_id: this.form.value.user_id
     }
   }
 
-  get_harvest(){
-    //Hacer la consulta para traer el cultivo relacionado a esa cosecha.
+  submit(){
+    this.serHome.updateCrop( this.crop.id_crop, this.setData()).subscribe(
+      (res: any) => {
+      this.update_crop = res
+      this.sucessAlert();
+      },
+      (err) => {
+        this.errorAlert();
+      }
+    );
+  }
 
-    //Crear logica para obtener los datos de la cosecha
-
-    
-
-    this.form.patchValue({
-      hectares: 0.4,
-      seed_time: new Date('07/05/2022'),
-      approximate_durability_date: new Date('07/05/2022'),
-      approximate_weeks_crop_durability: 4,
-      harvest_id: 2
+  sucessAlert() {
+    this.snackBar.open('Cosecha Actualizada', '👍', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['green-snackbar'],
     });
   }
+
+  errorAlert() {
+    this.snackBar.open('Actualización Fallido', '👎', {
+      duration: 3000,
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
+      panelClass: ['error-snackbar'],
+    });
+  }
+
 }

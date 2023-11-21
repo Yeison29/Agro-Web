@@ -47,9 +47,12 @@
                 <td class="header-body"> {{row.seed_time}} </td>
                 <td class="header-body"> {{row.approximate_durability_date}} </td>
                 <td class="header-body"> {{row.approximate_weeks_crop_durability}} </td>
-                <td class="header-body"> {{obtenerCultivo(row.harvest_id)}} </td>
-                <td class="header-body"> <fa-icon [icon]="fapentosquare" style="cursor: pointer;" (click)="searchById(row.id, 1)"></fa-icon> </td>
-                <td class="header-body"> <fa-icon [icon]="fatrash" style="cursor: pointer;" (click)="searchById(row.id, 2)"></fa-icon> </td>
+                <td class="header-body"> {{row.name_harvest}} </td>
+                @if(row.activate){
+                  <td class="header-body"> <fa-icon [icon]="fapentosquare" style="cursor: pointer;" (click)="searchById(row.id_crop, 1)"></fa-icon> </td>
+                  <td class="header-body"> <fa-icon [icon]="fatrash" style="cursor: pointer;" (click)="searchById(row.id_crop, 2)"></fa-icon> </td>
+                }
+                
               </tr>
               </tbody>
             </table>

@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { constants } from 'buffer';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HomeService {
+
+  id_user: any;
+
   private elementoSource = new BehaviorSubject<any>(null);
   elemento$ = this.elementoSource.asObservable();
 
@@ -92,6 +96,38 @@ export class HomeService {
     return this.http.get(
       `${this.baseUrl}/age-range`
     );
+  }
+
+  getAllCrops(): Observable<any>{
+    if(typeof localStorage !== 'undefined'){
+      const session = localStorage.getItem('session');
+      if(session){
+        this.id_user=JSON.parse(session).id_user;
+      }
+    }
+    return this.http.get(
+      `${this.baseUrl}/get-all-crops?user_id=${this.id_user}`
+    );
+  }
+
+  getOneCrops(id: any){
+    return this.http.get(`${this.baseUrl}/get-crop?id_crop=${id}`)
+  }
+
+  setCrop(crop: any){
+    this.elementoSource.next(crop);
+  }
+
+  updateCrop(id: any, data: any): Observable<any>  {
+    return this.http.put(`${this.baseUrl}/update-crop?id_crop=${id}`, data)
+  }
+
+  getHarvest(){
+    return this.http.get(`${this.baseUrl}/get-all-harvests`)
+  }
+
+  addCrops(data: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/create-crop`, data);
   }
 
 }
