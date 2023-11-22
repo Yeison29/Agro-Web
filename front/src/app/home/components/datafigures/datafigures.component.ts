@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-datafigures',
@@ -8,8 +9,19 @@ import { CommonModule } from '@angular/common';
   templateUrl: './datafigures.component.html',
   styleUrl: './datafigures.component.scss'
 })
-export class DatafiguresComponent implements AfterViewInit {
+export class DatafiguresComponent implements AfterViewInit,OnInit {
+
   @ViewChildren('timerElement') timerElements!: QueryList<ElementRef>;
+
+  count: any = []
+
+  constructor(private serHome: HomeService){}
+
+  ngOnInit(): void {
+    this.serHome.countHome().subscribe((res: any) => {
+      this.count = res;
+    });
+  }
 
   ngAfterViewInit(): void {
     this.initCountTo();

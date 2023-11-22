@@ -7,19 +7,19 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 item">
                         <div class="fun-fact">
-                            <div class="timer" #timerElement data-to="687" data-speed="5000">687</div>
-                            <span class="medium">Agricultores</span>
+                            <div class="timer" #timerElement [attr.data-to]="count.count_users" data-speed="5000">{{count.count_users}}</div>
+                            <span class="medium">Usuarios registrados</span>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 item">
                         <div class="fun-fact">
-                            <div class="timer" #timerElement data-to="655" data-speed="5000">655</div>
-                            <span class="medium">Municipios cultivados</span>
+                            <div class="timer" #timerElement [attr.data-to]="count.count_municipalities" data-speed="5000">{{count.count_municipalities}}</div>
+                            <span class="medium">Municipios</span>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 item">
                         <div class="fun-fact">
-                            <div class="timer" #timerElement data-to="450" data-speed="5000">450</div>
+                            <div class="timer" #timerElement [attr.data-to]="count.count_harvests" data-speed="5000">{{count.count_harvests}}</div>
                             <span class="medium">Tipos de cultivos</span>
                         </div>
                     </div>

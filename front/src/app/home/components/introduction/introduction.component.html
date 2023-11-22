@@ -27,7 +27,7 @@
                       <li>
                           <div class="fun-fact">
                               <div class="counter">
-                                  <div class="timer" #timerElement data-to="600" data-speed="5000">600</div>
+                                  <div class="timer" #timerElement [attr.data-to]="count.count_hectares" data-speed="5000">{{count.count_hectares}}</div>
                                   <div class="operator">+</div>
                               </div>
                               <span class="medium">Hectáreas cultivadas</span>

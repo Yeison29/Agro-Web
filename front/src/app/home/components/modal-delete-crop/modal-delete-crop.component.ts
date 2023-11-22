@@ -6,8 +6,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { ModalConfirmDeleteComponent } from '../modal-confirm-delete/modal-confirm-delete.component';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-modal-delete-crop',
@@ -18,46 +19,46 @@ import { ModalConfirmDeleteComponent } from '../modal-confirm-delete/modal-confi
 })
 export class ModalDeleteCropComponent implements OnInit {
 
-  harvest : any = [
-    {
-      id_harvest: 1,
-      name: 'PAPA',
-      code: '1'
-    },
-    {
-      id_harvest: 2,
-      name: 'Platano',
-      code: '2'
-    }
-];
+  crop : any = [];
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog){
+  constructor(private fb: FormBuilder, public dialog: MatDialog, public dialogoRef: MatDialogRef<ModalDeleteCropComponent>, private serHome: HomeService){
     this.form = fb.group({
       hectares: [{value: null, readonly: true},[Validators.required]],
       seed_time: ['', [Validators.required]],
       approximate_durability_date: ['', [Validators.required]],
       approximate_weeks_crop_durability: [null,[Validators.required]],
-      harvest_id: [{value: null, disabled: true}, [Validators.required]]
+      harvest_id: [0],
+      user_id: [0]
     });
   }
 
   ngOnInit(){
-    this.get_harvest();
+    this.serHome.elemento$.subscribe(crop => {
+      this.crop= crop;
+      this.form.patchValue({
+        hectares: crop.hectares,
+        seed_time: crop.seed_time,
+        approximate_durability_date: crop.approximate_durability_date,
+        approximate_weeks_crop_durability: crop.approximate_weeks_crop_durability,
+        harvest_id: crop.harvest_id,
+        user_id: crop.user_id
+      });
+    });
   }
 
   submit(){
-    const dialogRef = this.dialog.open(ModalConfirmDeleteComponent);
-
-    dialogRef.afterClosed().subscribe((result : Boolean) => {
-
-    if (result) {
-      this.eliminarCosecha();
-    }else{
-      console.log("cancelado");
-    }
-  });
+    this.serHome.getOneCrops(this.crop.id_crop).subscribe((res: any) => {
+      this.serHome.setCrop(res);
+      const dialogRef = this.dialog.open(ModalConfirmDeleteComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            if(result){
+    
+            }
+            this.dialogoRef.close(true);
+        });
+    });
   }
 
   eliminarCosecha() {
@@ -65,19 +66,4 @@ export class ModalDeleteCropComponent implements OnInit {
     console.log("eliminé");
   }
 
-  get_harvest(){
-    //Hacer la consulta para traer el cultivo relacionado a esa cosecha.
-
-    //Crear logica para obtener los datos de la cosecha
-
-    
-
-    this.form.patchValue({
-      hectares: 0.4,
-      seed_time: new Date('07/05/2022'),
-      approximate_durability_date: new Date('07/05/2022'),
-      approximate_weeks_crop_durability: 4,
-      harvest_id: 2
-    });
-  }
 }

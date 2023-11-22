@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChildren, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InewItem } from '../news/Inews-items.metadata';
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-introduction',
@@ -9,14 +10,23 @@ import { InewItem } from '../news/Inews-items.metadata';
   templateUrl: './introduction.component.html',
   styleUrl: './introduction.component.scss'
 })
-export class IntroductionComponent implements AfterViewInit {
+export class IntroductionComponent implements AfterViewInit, OnInit {
 
   @Input() items: InewItem[] = [];
+  count: any = [];
 
   @ViewChildren('timerElement') timerElements!: QueryList<ElementRef>;
 
+  constructor(private serHome: HomeService){}
+
   ngAfterViewInit(): void {
     this.initCountTo();
+  }
+
+  ngOnInit(): void {
+    this.serHome.countHome().subscribe((res: any) => {
+      this.count = res;
+    });
   }
 
   initCountTo(): void {

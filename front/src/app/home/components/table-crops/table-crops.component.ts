@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ReactiveFormsModule, FormBuilder, FormsModule} from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -19,6 +19,8 @@ import { HomeService } from '../../home.service';
 })
 export class TableCropsComponent implements OnInit {
 
+  @Output() refresh = new EventEmitter<void>();
+
   fatrash = faTrash;
   fapentosquare = faPenToSquare;
   contador=1;
@@ -35,6 +37,7 @@ export class TableCropsComponent implements OnInit {
   }
 
   getAlldata(){
+    this.refresh.emit();
     this.serHome.getAllCrops().subscribe((res: any) => {
       this.tableData= res;
     });
@@ -98,12 +101,16 @@ export class TableCropsComponent implements OnInit {
   }
 
   openModalDelete(id: any){
-    const dialogRef = this.dialog.open(ModalDeleteCropComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        console.log("modalDelete");
-      }
-    })
+    this.serHome.getOneCrops(id).subscribe((res: any) => {
+      this.serHome.setCrop(res);
+      const dialogRef = this.dialog.open(ModalDeleteCropComponent);
+        dialogRef.afterClosed().subscribe(result => {
+            if(result){
+              this.getAlldata();
+            }
+        });
+    });
+
   }
 
 }

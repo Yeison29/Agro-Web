@@ -134,4 +134,12 @@ export class HomeService {
     return this.http.get(`${this.baseUrl}/table-price`)
   }
 
+  deleteCrop(id: any): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete-crop?id_crop=${id}`)
+  }
+
+  countHome(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/home`)
+  }
+
 }

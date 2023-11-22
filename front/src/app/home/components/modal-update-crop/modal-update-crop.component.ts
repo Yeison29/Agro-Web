@@ -20,7 +20,6 @@ import moment from 'moment';
 })
 export class ModalUpdateCropComponent implements OnInit {
 
-  harvest : any = [];
   crop : any = [];
   form: FormGroup;
   update_crop: any = []

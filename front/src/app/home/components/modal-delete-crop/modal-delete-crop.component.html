@@ -1,6 +1,7 @@
 <div class="container">
     <form class="form" [formGroup]="form">
         <h1>Eliminar Cosecha</h1>
+        <h3>{{crop.name_harvest}}</h3>
         <div class="form-register-crops">
 
             <mat-form-field class="init">
@@ -46,18 +47,6 @@
                 }
             </mat-form-field>
 
-            <mat-form-field class="doce">
-                <mat-label>Cultivo</mat-label>
-                <mat-select formControlName="harvest_id" readonly>
-                    @for (harve of harvest; track harve) {
-                    <mat-option [value]="harve.id_harvest">{{harve.code}} - {{harve.name}}</mat-option>
-                    }
-                </mat-select>
-                <mat-hint align="end">Seleccione un <strong>cultivo</strong></mat-hint>
-                @if (form.get('harvest_id')?.errors?.['required']) {
-                <mat-error>Cultivo <strong>requerido</strong></mat-error>
-                }
-            </mat-form-field>
         </div>
     </form>
     <div class="container-boton">

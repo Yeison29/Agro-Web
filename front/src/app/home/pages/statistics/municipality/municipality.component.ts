@@ -37,8 +37,12 @@ export class MunicipalityComponent implements OnInit {
         datasets: [{
           label: 'Hectareas',
           data: this.getData(),
-          backgroundColor: 'rgba(1,125,63,1)',
-          borderColor: 'rgba(1,125,63,1)',
+          backgroundColor: [
+            'rgba(1,125,63,1)',
+            'rgb(54, 162, 235)',
+            'rgb(241, 207, 105)',
+            'rgb(255, 128, 0)',
+          ],
           borderWidth: 1
         }]
       },

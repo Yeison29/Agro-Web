@@ -6,6 +6,8 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable, finalize } from 'rxjs';
+import { Token } from '@angular/compiler';
+import { LoaderService } from '../public/loader.service';
 
 @Injectable()
 export class LoginInterceptor implements HttpInterceptor {
@@ -19,14 +21,20 @@ export class LoginInterceptor implements HttpInterceptor {
     '/get-all-municipalities',
   ];
 
-  // constructor(private load: LoaderService) {}
+   constructor(private load: LoaderService) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
 
-    // this.load.setActive();
+    this.load.setActive();
+    console.log(request.url.split('?')[0])
+
+    if (this.tokenLessRoutes.some(ruta => ruta === request.url.split('?')[0])) {
+      return next.handle(request);
+    }
+
     let cloneReq = request;
     
     if (
@@ -43,8 +51,8 @@ export class LoginInterceptor implements HttpInterceptor {
     }
 
     return next.handle(cloneReq).pipe(
-      finalize(() => {
-        // this.load.setInactive();
+      finalize(()=>{
+        this.load.setInactive(); 
       })
     );
   }

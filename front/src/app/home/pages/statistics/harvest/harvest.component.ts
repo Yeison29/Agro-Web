@@ -39,8 +39,12 @@ export class HarvestComponent implements OnInit {
           {
             label: 'Hectareas',
             data: this.getData(),
-            backgroundColor: 'rgb(241, 207, 105)',
-            borderColor: 'rgb(241, 207, 105)',
+            backgroundColor: [
+              'rgba(1,12,63,1)',
+              'rgb(54, 16, 235)',
+              'rgb(241, 20, 105)',
+              'rgb(255, 12, 0)',
+            ],
             borderWidth: 1,
           },
         ],

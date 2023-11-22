@@ -52,9 +52,9 @@ export class GenderComponent implements OnInit {
             label: 'cantidad',
             data: dataAgrupadas,
             backgroundColor: [
-              'rgba(1,125,63,1)',
-              'rgb(54, 162, 235)',
-              'rgb(241, 207, 105)',
+              'rgba(26,55,63,1)',
+              'rgb(241, 20, 105)',
+              'orange',
             ],
             hoverOffset: 4,
           },

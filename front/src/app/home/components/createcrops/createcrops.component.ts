@@ -48,11 +48,6 @@ export class CreatecropsComponent implements OnInit {
     }
   }
 
-  getAlldata(){
-    this.serHome.getAllCrops().subscribe((res: any) => {
-    });
-  }
-
   getHarvest(){
     this.serHome.getHarvest().subscribe(
       (res: any) => {
@@ -76,12 +71,12 @@ export class CreatecropsComponent implements OnInit {
     await this.serHome.addCrops(this.setData()).subscribe(
       (res: any) => {
         this.sucessAlert();
+        this.form.reset();
       },
       (err: any) => {
         this.errorAlert()
       },
     );
-    this.getAlldata();
   }
 
   sucessAlert() {

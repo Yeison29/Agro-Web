@@ -20,6 +20,7 @@ import { FooterComponent } from '../../../public/footer/footer.component';
   styleUrl: './statistics.component.scss'
 })
 export class StatisticsComponent implements OnInit {
+
   myChart: Chart | null = null;
   data: any = [];
   harvests: any = [];
@@ -77,51 +78,28 @@ export class StatisticsComponent implements OnInit {
 
   obtenerSemanas(): string[] {
     const today = new Date();
-    const currentWeek = this.getWeekNumber(today);
   
     const semanasAgrupadas: string[] = [];
   
-    let weekFound = false;
-      this.data.forEach((weeks: any) => {
-        weeks.forEach((item: any) => {
-          const date = new Date(item.initial_year, item.initial_month - 1, item.week);
-          const weekCurrent = this.getWeekNumber(date);
-    
-          if (weekCurrent === currentWeek) {
-            weekFound = true;
-          }
-    
-          if (weekFound || weekCurrent > currentWeek) {
-            semanasAgrupadas.push(`${item.initial_year}-${this.getMonthName(item.initial_month)}; sem: ${item.week}`);
-          }
-        });
+      this.data.forEach((week: any) => {
+        console.log(week)
+          semanasAgrupadas.push(`${week.initial_year}-${this.getMonthName(week.initial_month)}; sem: ${week.week}`);
       });  
+      console.log(semanasAgrupadas)
     return semanasAgrupadas;
   }
 
   obtenerProduccion(): number[] {
     const today = new Date();
-    const currentWeek = this.getWeekNumber(today);
   
     const produccionPorSemana: number[] = [];
+
   
-    let weekFound = false;
-  
-    this.data.forEach((weeks: any) => {
-      weeks.forEach((item: any) => {
-        const date = new Date(item.initial_year, item.initial_month - 1, item.week);
-        const weekCurrent = this.getWeekNumber(date);
-  
-        if (weekCurrent === currentWeek) {
-          weekFound = true;
-        }
-  
-        if (weekFound || weekCurrent > currentWeek) {
-          produccionPorSemana.push(item.total_hectares);
-        }
-      });
+    this.data.forEach((week: any) => {
+        produccionPorSemana.push(week.total_hectares);
+
     });
-  
+    console.log(produccionPorSemana)
     return produccionPorSemana;
   }
 
@@ -157,7 +135,8 @@ export class StatisticsComponent implements OnInit {
 
   getWeeksService(id: any){
     this.serHome.getWeeksService(id).subscribe((res: any) => {
-      this.data=[res]
+      this.data=res
+      console.log(res)
       this.crearGrafica();
     });
   }
