@@ -1,3 +1,9 @@
+.container-navbar{
+  border-bottom: solid 1px #eda407;
+  margin-bottom: 1px;
+  padding-bottom: 10px;
+}
+
 *{
   box-sizing: border-box;
   margin: 0;
@@ -45,8 +51,8 @@
 }
 
 .container-menu{
-  text-align: right;
-  width: 70%;
+  //text-align: right;
+  width: 60%;
 }
 .dropdown{
   display: flex;
@@ -79,9 +85,9 @@ header .logo img:hover{
 }
 
 .nav-links li:hover{
-  transform: scale(1.1);
+  //transform: scale(1.1);
   cursor: pointer;
-  background-color: none;
+  //background-color: none;
   border-radius: 5px;
   background-color: rgba(1,125,63,1);
   // background-position: 100% 0;
@@ -106,12 +112,14 @@ header .logo img:hover{
 }
 
 button{
-  margin-right: 37px;
-  background-color: rgba(1,125,63,1);
-  border: solid 1px black;
+  //margin-right: 37px;
+  border:none;
+  background-color: #3c6a36;
+  //border: solid 1px black;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  padding: 10px 5px;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   color: white;
 }
@@ -215,5 +223,6 @@ button:active{
       transform: translateY(-200px);
     }
   }
+
 
 }

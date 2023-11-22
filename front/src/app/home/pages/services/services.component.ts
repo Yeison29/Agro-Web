@@ -7,6 +7,7 @@ import {ReactiveFormsModule, FormBuilder, FormsModule} from '@angular/forms';
 import {FooterComponent} from "../../../public/footer/footer.component";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import { HomeService } from '../../home.service';
 
 @Component({
   selector: 'app-services',
@@ -25,139 +26,19 @@ export class ServicesComponent implements OnInit {
   sortColumn: string = '';
   currentFilter: string = '';
 
-  tableData = [
-    {
-      numero: 1,
-      fecha: '19/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Tomate',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-    {
-      numero: 2,
-      fecha: '20/11/2023',
-      fuente: 'Corabastos',
-      articulo: 'Platano',
-      promedio: 2000,
-      minimo: 1500,
-      maximo: 2500
-    },
-  ];
+  tableData: any = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private serHome: HomeService) {
   }
 
   ngOnInit(){
+    this.getDataDANE();
+  }
+
+  getDataDANE(){
+    this.serHome.getDataDane().subscribe((res: any) => {
+      this.tableData= res;
+    });
   }
 
   onSort(column: string) {
@@ -188,11 +69,10 @@ export class ServicesComponent implements OnInit {
     const startIndex = (this.currentPage - 1) * this.entriesPerPage;
     const endIndex = startIndex + this.entriesPerPage;
 
-    const filteredData = this.tableData.filter(row =>
+    const filteredData = this.tableData.filter((row: any) =>
       row.articulo.toLowerCase().includes(this.searchText.toLowerCase()) ||
       row.fuente.toLowerCase().includes(this.searchText.toLowerCase())
     );
-
     return this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn])
       .slice(startIndex, endIndex);
   }
@@ -214,7 +94,7 @@ export class ServicesComponent implements OnInit {
   }
 
   filterTableData(): any[] {
-    const filteredData = this.tableData.filter(row =>
+    const filteredData = this.tableData.filter((row: any) =>
       row.articulo.toLowerCase().includes(this.searchText.toLowerCase()) ||
       row.fuente.toLowerCase().includes(this.searchText.toLowerCase())
     );
@@ -224,20 +104,20 @@ export class ServicesComponent implements OnInit {
 
   onEntriesPerPageChange() {
     this.currentPage = 1;
-    /* this.applyFilterAndPagination(); */
+    // this.applyFilterAndPagination();
   }
 
-  /* applyFilter() {
-    this.applyFilterAndPagination();
-  } */
+  // applyFilter() {
+  //   this.applyFilterAndPagination();
+  // }
 
-  /* applyFilterAndPagination() {
-    const filteredData = this.filterTableData();
-    const sortedData = this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn]);
-
-    const startIndex = (this.currentPage - 1) * this.entriesPerPage;
-    const endIndex = startIndex + this.entriesPerPage;
-
-    this.tableData = sortedData.slice(startIndex, endIndex);
-  } */
+  // applyFilterAndPagination() {
+  //   const filteredData = this.filterTableData();
+  //   const sortedData = this.sortTableData(filteredData, this.sortColumn, this.sortOrder[this.sortColumn]);
+  //
+  //   const startIndex = (this.currentPage - 1) * this.entriesPerPage;
+  //   const endIndex = startIndex + this.entriesPerPage;
+  //
+  //   this.tableData = sortedData.slice(startIndex, endIndex);
+  // }
 }

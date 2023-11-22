@@ -72,16 +72,16 @@ export class CreatecropsComponent implements OnInit {
     }
   }
 
-  submit(){
-    this.serHome.addCrops(this.setData()).subscribe(
+  async submit(){
+    await this.serHome.addCrops(this.setData()).subscribe(
       (res: any) => {
-        this.getAlldata();
         this.sucessAlert();
       },
       (err: any) => {
         this.errorAlert()
       },
     );
+    this.getAlldata();
   }
 
   sucessAlert() {

@@ -5,7 +5,6 @@ import {  StatisticsComponent } from "./home/pages/statistics/statistics.compone
 import { LoginComponent } from './home/components/login/login.component';
 import { ActivateComponent } from './home/components/activate/activate.component';
 import { CropsComponent } from './home/pages/crops/crops.component';
-import {FarmersComponent} from "./home/pages/farmers/farmers.component";
 
 export const routes: Routes = [
     {path: '', pathMatch: 'full', redirectTo:'/home'},
@@ -14,6 +13,5 @@ export const routes: Routes = [
     { path: 'statistics', component: StatisticsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'activate/:code', component: ActivateComponent },
-    { path: 'crops', component: CropsComponent },
-    { path: 'farmers', component: FarmersComponent }
+    { path: 'crops', component: CropsComponent }
 ];

@@ -130,4 +130,8 @@ export class HomeService {
     return this.http.post(`${this.baseUrl}/create-crop`, data);
   }
 
+  getDataDane(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/table-price`)
+  }
+
 }
